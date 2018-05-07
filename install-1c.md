@@ -21,6 +21,6 @@ tar -xvzf *.tar.gz
 rm *thin*.deb
 rm *nls*.deb
 sudo dpkg -i *.deb
-systemctl start srv1cv83
-systemctl start haspd
+sudo systemctl start srv1cv83
+sudo systemctl start haspd
 ```
