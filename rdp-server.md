@@ -56,7 +56,7 @@ use_fully_qualified_names = False
 
 Чтобы хомяк создавался автоматически: в /etc/pam.d/common-session-noninteractive в самый конец добавить:
 ```
-session optinonal pam_mkhomedir.so
+session optional pam_mkhomedir.so
 ```
 
 Чтобы хомяк создавался по адресу /home/contoso/<user>: в /etc/sssd/sssd.conf исправить параметр "fallback_homedir":
