@@ -8,8 +8,8 @@
 
 # Готовим сеть
 в /etc/network/interfaces в конец добавить:
-dns-nameservers 192.1.1.1 192.1.1.2
-dns-search contoso.com
+``` dns-nameservers 192.1.1.1 192.1.1.2
+dns-search contoso.com ```
 
 sudo ifdown eth0 && sudo ifup eth0
 
