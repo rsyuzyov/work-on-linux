@@ -9,9 +9,8 @@
 
 Работаем в каталоге ~/temp, дистрибутивы 1С качаем руками.
 
-`
+```
 cd ~/temp
-
 sudo apt install net-tools imagemagick libwebkitgtk-1.0-0 libc6-i386 libgsf-bin libgsf-1-common ttf-freefont ttf-mscorefonts-installer
 wget ftp://ftp.etersoft.ru/pub/Etersoft/HASP/stable/x86_64/Debian/8/haspd_7.40-eter10debian_amd64.deb
 rm *thin*.deb
@@ -19,4 +18,4 @@ rm *nls*.deb
 sudo dpkg -i *.deb
 systemctl start srv1cv83
 systemctl start haspd
-`
+```
