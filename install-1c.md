@@ -8,6 +8,7 @@
 - Установить все пакеты
 
 Работаем в каталоге ~/temp, дистрибутивы 1С качаем руками.
+
 Для успешной установки ttf-mscorefonts-installer необходимо для основного репозитория помимо main добавить contrib non-free:
 В /etc/apt/sources.list найти "deb http:/.../debian/ stretch main" и добавить "contrib non-free"
 
