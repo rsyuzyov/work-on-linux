@@ -16,7 +16,7 @@
 cd ~/temp
 sudo apt install net-tools imagemagick libwebkitgtk-1.0-0 libc6-i386 \
 libgsf-bin libgsf-1-common ttf-freefont ttf-mscorefonts-installer
-wget ftp://ftp.etersoft.ru/pub/Etersoft/HASP/stable/x86_64/Debian/8/haspd_7.40-eter10debian_amd64.deb
+ftp://ftp.etersoft.ru/pub/Etersoft/HASP/stable/x86_64/Debian/9/haspd_7.60-eter1debian_amd64.deb
 tar -xvzf *.tar.gz
 rm *thin*.deb
 rm *nls*.deb
