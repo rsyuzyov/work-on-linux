@@ -17,12 +17,13 @@
 **Кладем значок 1С на рабочий стол**
 sudo nano /etc/skel/Desktop/1cestart.desktop
 вставляем:
+```
 [Desktop Entry]
 Type=Link
 Name=1С:Предприятие
 Icon=1cestart
 URL=/usr/share/applications/1cestart.desktop
-
+```
 **Настраиваем панель lxde:**
 настраиваем свою панель нужным образом (тут подробней расписать)
 далее копируем файл в профиль по умолчанию:
