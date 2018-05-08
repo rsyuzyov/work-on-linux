@@ -4,7 +4,7 @@
 
 
 ## Про домен
-[Какие способы включения в доемен есть](https://rhelblog.redhat.com/2015/02/04/overview-of-direct-integration-options/)  
+[Какие способы включения в домен есть](https://rhelblog.redhat.com/2015/02/04/overview-of-direct-integration-options/)  
 [В чем разница между winbind и sssd](https://rhelblog.redhat.com/2015/04/02/sssd-vs-winbind/)
 
 ## Про службы терминалов
@@ -17,6 +17,6 @@ ltsp
 
 ## Про PostgreSQL
 
-## Про 
+## Про офисный пакет
 
 ## Про "тоже полезно знать"
