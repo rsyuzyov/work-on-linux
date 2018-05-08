@@ -13,8 +13,8 @@
 - xdg
 - lxde
 
-**Делаем профииль по умолчанию**
-*Кладем значок 1С на рабочий стол:*
+# Делаем профииль по умолчанию
+**Кладем значок 1С на рабочий стол**
 sudo nano /etc/skel/Desktop/1cestart.desktop
 вставляем:
 [Desktop Entry]
@@ -23,7 +23,7 @@ Name=1С:Предприятие
 Icon=1cestart
 URL=/usr/share/applications/1cestart.desktop
 
-*Настраиваем панель lxde:*
+**Настраиваем панель lxde:**
 настраиваем свою панель нужным образом (тут подробней расписать)
 далее копируем файл в профиль по умолчанию:
 sudo cp ~/.config/lxpanel/LXDE/panels/panel /etc/xdg/lxpanel/LXDE/panels/panel
