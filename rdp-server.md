@@ -74,8 +74,7 @@ fallback_homedir = /home/prodline/%u
 Если написать /home/%u@%d, то будет так: /home/user@contoso.com
 
 Если при входе через rdp получаем ошибку "login failed", при этом "su adadmin" отрабатывает успешно:
-в /etc/sssd/sssd.conf изменить параметр:
+в /etc/sssd/sssd.conf [изменить параметр](https://github.com/neutrinolabs/xrdp/issues/906):
 ```
 access_provider = simple
 ```
-(https://github.com/neutrinolabs/xrdp/issues/906)
