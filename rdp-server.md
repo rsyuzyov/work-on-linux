@@ -1,4 +1,12 @@
-# Исходные данные
+# Организация терминального сервера (Remote Desktop Services)
+
+## Что есть
+[xrdp]()
+[x2go]
+[LTSP]
+[...]
+
+## Исходные данные
 - ОС: debian 9
 - DE: lxde (можно выбрать установку сразу при установке ОС или доставить позже: sudo apt install lxde)
 - Домен: contoso.com
@@ -6,7 +14,7 @@
 - 2 DC: dc1 (192.1.1.1) и dc2 (192.1.1.2)
 - имя сетевой карты: etho (посмотреть: ifconfig)
 
-# Готовим сеть
+## Готовим сеть
 в /etc/network/interfaces в конец добавить:
 ```
 dns-nameservers 192.1.1.1 192.1.1.2
@@ -21,14 +29,14 @@ nameserver 192.1.1.1
 nameserver 192.1.1.2
 ```
 
-# Ставим xrdp
+## Ставим xrdp
 Чтобы использовать свежие пакеты, подключаем backports:
 ```
 echo "deb http://ftp.debian.org/debian/ stretch-backports main contrib non-free" > /etc/apt/sources.list.d/backports.list
 sudo apt -t stretch-backports install xrdp
 ```
 
-# Включаем в домен
+## Включаем в домен
 
 В домен можно включать разными способами, о чем замечательно написано в блоге red hat: 
 https://rhelblog.redhat.com/2015/02/04/overview-of-direct-integration-options/
@@ -42,7 +50,7 @@ sudo apt install realmd krb5-user software-properties-common packagekit
 sudo realm join contoso.com -U 'adadmin@CONTOSO.COM' -v
 ```
 
-# Дополнения
+## Дополнения
 Если получили ошибку разрешения имени contoso.com: в /etc/nssswitch.conf для параметра hosts поставить первым методом "dns":
 ```
 hosts: dns files ...
