@@ -17,7 +17,8 @@ https://wiki.archlinux.org/index.php/LXDE_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%
 - xdg
 - lxde
 
-## Делаем профииль по умолчанию
+## Делаем профиль по умолчанию
+
 **Кладем значок 1С на рабочий стол:**  
 sudo nano /etc/skel/Desktop/1cestart.desktop  
 вставляем:
@@ -36,11 +37,11 @@ URL=/usr/share/applications/1cestart.desktop
 sudo cp ~/.config/lxpanel/LXDE/panels/panel /etc/xdg/lxpanel/LXDE/panels/panel
 ```
 
-**Редактируем меню приложений (Пуск)**
-Меню строится по файлам .desktop из каталога /usr/share/applications - просто добавляем, удаляем, меняем файлы.
-Более комфортный способ - использование редакторов меню, например LXMenuEditor или MenuLibre. Последний входит в официальный репозиторий.
+**Редактируем меню приложений (Пуск)**  
+Меню строится по файлам .desktop из каталога /usr/share/applications - просто добавляем, удаляем, меняем файлы.  
+Более комфортный способ - использование редакторов меню, например LXMenuEditor или MenuLibre. Последний входит в официальный репозиторий.  
 Установка:
 ```
 sudo apt install menulibre
 ```
-Про файлы .desktop более подробно можно почитать [здесь](https://specifications.freedesktop.org/desktop-entry-spec/latest/).
+Про файлы .desktop более подробно можно почитать [здесь](https://specifications.freedesktop.org/desktop-entry-spec/latest/).  
