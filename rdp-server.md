@@ -64,7 +64,7 @@ access_provider = simple
 session optional pam_mkhomedir.so
 ```
 
-Можно изменить /etc/sssd/sssd.conf:
+Полезные правки /etc/sssd/sssd.conf:
 ```
 # Чтобы не вводить имя домена при авторизации
 use_fully_qualified_names = False
