@@ -40,41 +40,36 @@ sudo apt -t stretch-backports install xrdp
 
 В домен можно включать разными способами, о чем замечательно написано в блоге red hat: 
 https://rhelblog.redhat.com/2015/02/04/overview-of-direct-integration-options/
-https://rhelblog.redhat.com/2015/04/02/sssd-vs-winbind/
-
-Сначала идем почти по официальной инструкции от MS:
-(https://docs.microsoft.com/ru-ru/sql/linux/sql-server-linux-active-directory-authentication?view=sql-server-linux-2017#join)
+https://rhelblog.redhat.com/2015/04/02/sssd-vs-winbinлоту winbind из пакета samba или утилиту realm из пакета sssd.  
+Второй способ более современный и простой, и даже приведен в [официальной инструкции microsoft](https://docs.microsoft.com/ru-ru/sql/linux/sql-server-linux-active-directory-authentication?view=sql-server-linux-2017#join).
 
 ```
 sudo apt install realmd krb5-user software-properties-common packagekit
 sudo realm join contoso.com -U 'adadmin@CONTOSO.COM' -v
 ```
-
-## Дополнения
 Если получили ошибку разрешения имени contoso.com: в /etc/nssswitch.conf для параметра hosts поставить первым методом "dns":
 ```
 hosts: dns files ...
 ```
+Если при входе через rdp получаем ошибку "login failed", при этом "su adadmin" отрабатывает успешно:
+в /etc/sssd/sssd.conf [изменить параметр](https://github.com/neutrinolabs/xrdp/issues/906):
+```
+access_provider = simple
+```
 
-Чтобы не вводить имя домена при авторизации: в /etc/sssd/sssd.conf изменить параметр:
-```
-use_fully_qualified_names = False
-```
-(https://www.server-world.info/en/note?os=Debian_9&p=realmd)
+## Дополнения
 
 Чтобы хомяк создавался автоматически: в /etc/pam.d/common-session-noninteractive в самый конец добавить:
 ```
 session optional pam_mkhomedir.so
 ```
 
-Чтобы хомяк создавался по адресу /home/contoso/<user>: в /etc/sssd/sssd.conf исправить параметр "fallback_homedir":
+Можно изменить /etc/sssd/sssd.conf:
 ```
-fallback_homedir = /home/prodline/%u
+# Чтобы не вводить имя домена при авторизации
+use_fully_qualified_names = False
+# Чтобы хомяк создавался по адресу /home/contoso/<user>
+fallback_homedir = /home/contoso/%u
+# Если написать /home/%u@%d, то будет так: /home/user@contoso.com
 ```
-Если написать /home/%u@%d, то будет так: /home/user@contoso.com
 
-Если при входе через rdp получаем ошибку "login failed", при этом "su adadmin" отрабатывает успешно:
-в /etc/sssd/sssd.conf [изменить параметр](https://github.com/neutrinolabs/xrdp/issues/906):
-```
-access_provider = simple
-```
