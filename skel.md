@@ -43,4 +43,6 @@ sudo cp ~/.config/lxpanel/LXDE/panels/panel /etc/xdg/lxpanel/LXDE/panels/panel
 ```
 sudo apt install menulibre
 ```
+В cinnamon имеется встроенный редактор  
+
 Про файлы .desktop более подробно можно почитать [здесь](https://specifications.freedesktop.org/desktop-entry-spec/latest/).  
