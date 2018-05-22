@@ -38,6 +38,6 @@ sudo apt -t stretch-backports install xrdp
 
 ## Включаем в домен
 
-Выполняем [эти инструкции](join-to-domain.md)
+Выполняем простенькую [инструкцию](join-to-domain.md)
 
 
