@@ -1,6 +1,6 @@
 Apache httpd - веб-сервер, маленький, шустрый, простой и кроссплатформенный. Нафига нам IIS?
 
-###Установка
+### Установка  
 **debian:**  
 ```
 sudo apt install apache2
@@ -10,7 +10,7 @@ sudo apt install apache2
 choco install apache-httpd -y
 ```
 
-###Настройка
+### Настройка
 С автопубликацией все понятно, посмотрим на ручную публикацию.
 
 Добавляем в /etc/apache2/apache2.conf (c:\program files\apache24\httpd.conf):
@@ -28,3 +28,6 @@ sudo systemctl restart apache2
 ```
 net stop ""; net start ""
 ```
+
+
+## Авторизация средствами ОС
