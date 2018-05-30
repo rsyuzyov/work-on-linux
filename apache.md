@@ -38,7 +38,7 @@ LoadModule ssl_module modules/mod_ssl.so
 ### Настройка
 Публикация средствами 1С - для слабаков, публикуем вручную:
 
-Готовим конфиг /etc/apache2/apache2.conf (C:\Program Files\Apache24\conf\httpd.conf):
+Готовим конфиг /etc/apache2/apache2.conf (C:\Program Files\Apache24\conf\httpd.conf):  
 Добавляем обработчик для 1С:
 ```
 LoadModule _1cws_module "/opt/1C/v8.3/x86_64/wsap24.so"
