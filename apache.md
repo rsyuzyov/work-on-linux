@@ -48,7 +48,7 @@ sudo systemctl restart apache2
 ```
 или 
 ```
-net stop ""; net start ""
+net stop Apache; net start Apache
 ```
 
 
