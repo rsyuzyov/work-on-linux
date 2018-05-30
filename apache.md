@@ -38,9 +38,16 @@ LoadModule ssl_module modules/mod_ssl.so
 ### Настройка
 Публикация средствами 1С - для слабаков, публикуем вручную:
 
-Добавляем в /etc/apache2/apache2.conf (C:\Program Files\Apache24\conf\httpd.conf):
+Готовим конфиг /etc/apache2/apache2.conf (C:\Program Files\Apache24\conf\httpd.conf):
+Добавляем обработчик для 1С:
 ```
+LoadModule _1cws_module "/opt/1C/v8.3/x86_64/wsap24.so"
 ```
+win:
+```
+LoadModule _1cws_module "C:/Program Files/1cv8/8.3.10.2466/bin/wsap24.dll"
+```
+
 Создаем vrd-файл следующего содержания и кладем в ...:
 ```
 ```
@@ -49,10 +56,12 @@ LoadModule ssl_module modules/mod_ssl.so
 ```
 sudo systemctl restart apache2
 ```
-или 
+win: 
 ```
 net stop Apache; net start Apache
 ```
 
+### Настройка с помощью webinst
+/opt/1C/v8.3/x86_64/webinst
 
 ### Авторизация средствами ОС
