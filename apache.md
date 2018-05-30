@@ -10,7 +10,7 @@ sudo apt install apache2
 choco install apache-httpd --params "/installLocation:C:\Progra~1 /port:80 /serviceName:Apache" -y
 ```
 Если порт 80 или 443 заняты, в процессе установки получм сообщение о невозможности открытия порта при запуске службы.  
-В этом случае либо освобождаем порты, либо меняем порты на нестандартные: в c:\Program Files\Apache24\conf\httpd.conf меняем  
+В этом случае либо освобождаем порты (весьма вероятно, что уже установлен IIS и его нужно снести), либо меняем порты на нестандартные: в c:\Program Files\Apache24\conf\httpd.conf меняем  
 ```
 Listen 80
 ```
