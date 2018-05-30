@@ -35,7 +35,7 @@ LoadModule ssl_module modules/mod_ssl.so
 ```
  </details>
   
-### Настройка
+### Публикация вручную
 Публикация средствами 1С - для слабаков, публикуем вручную:
 
 Готовим конфиг /etc/apache2/apache2.conf (C:\Program Files\Apache24\conf\httpd.conf):  
@@ -61,7 +61,8 @@ win:
 net stop Apache; net start Apache
 ```
 
-### Настройка с помощью webinst
-/opt/1C/v8.3/x86_64/webinst
+### Публикация с помощью webinst
+Каждый раз так утруждаться тяжело, поэтому можно заменить все одной строкой:
+/opt/1C/v8.3/x86_64/webinst -apache24 -wsdir mybase -dir /var/www/mybase -connstr "Srvr=myserver;Ref=mybase;" -confPath /etc/apache2/httpd.conf
 
 ### Авторизация средствами ОС
