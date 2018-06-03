@@ -24,3 +24,7 @@ sudo dpkg -i *.deb
 sudo systemctl start srv1cv83
 sudo systemctl start haspd
 ```
+
+
+**Мониторинг и анализ**  
+https://github.com/bessonovevgen/srv-1c-zabbix-template
