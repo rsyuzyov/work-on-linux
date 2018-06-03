@@ -14,5 +14,5 @@ https://postgrespro.ru/docs/postgrespro/9.6/different-replication-solutions
 https://postgrespro.ru/docs/postgrespro/9.6/continuous-archiving  
 
 **Мониторинг и анализ**
-https://github.com/NikolayS/postgres_dba
+https://github.com/NikolayS/postgres_dba  
 https://pgmetrics.io/  
