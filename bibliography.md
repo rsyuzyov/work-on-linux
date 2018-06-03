@@ -1,6 +1,7 @@
 # Список литературы, ссылки
 
 ## С чего самому начать переезд
+[По какой linux нонче народ чаще ходит](https://distrowatch.com/dwres.php?resource=popularity)
 
 
 ## Про домен
