@@ -27,4 +27,6 @@ sudo systemctl start haspd
 
 
 **Мониторинг и анализ**  
-https://github.com/bessonovevgen/srv-1c-zabbix-template
+https://github.com/bessonovevgen/srv-1c-zabbix-template  
+https://its.1c.ru/db/metod8dev#content:5824:hdoc  
+
