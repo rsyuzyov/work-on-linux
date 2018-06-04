@@ -21,10 +21,12 @@ access_provider = simple
 
 ## Дополнения
 Чтобы хомяк создавался автоматически:  
-debian: в /etc/pam.d/common-session-noninteractive в самый конец добавить:  
-``session optional pam_mkhomedir.so``
+debian: в /etc/pam.d/common-session-noninteractive в самый конец добавить:
+```session optional pam_mkhomedir.so```
 centos:  
-``authconfig --enablemkhomedir --update``
+```
+authconfig --enablemkhomedir --update
+```
 
 Полезные правки /etc/sssd/sssd.conf:
 ```
