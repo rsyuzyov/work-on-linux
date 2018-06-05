@@ -15,7 +15,7 @@
 - [IIS -> Apache httpd](apache.md)  
 - [MSSQL -> postgresql](postgresql.md)  
 - [Сервер 1С: переводим на linux](1c-on-linux.md)  
-- [Контроллер домена: переводим на samba | freeipa](ad.md)  
+- [Контроллер домена: переводим на samba | freeipa](freeipa.md)  
 - [Файловое хранилище: переводим на samba](samba.md)
 - [Организация мониторинга](monitoring.md)  
 - [Организация резервного копирования](backups.md)  
