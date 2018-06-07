@@ -13,10 +13,10 @@ primarycache-metadata
 
 Для postgres:  
 ```
-zpool create pgpool /dev/sdX
-zfs create pgpool/pgdata
-zfs set recordsize=8k pgpool/pgdata
-zfs set atime=off pgpool/pgdata
+sudo zpool create pgpool /dev/sdX
+sudo zfs create pgpool/pgdata -o mountpoint=/pgdata
+sudo zfs set recordsize=8k pgpool/pgdata
+sudo zfs set atime=off pgpool/pgdata
 ```
 
 
