@@ -9,7 +9,7 @@ Postgres, в отличие от MS SQL, не умеет сжатие данны
 
 http://open-zfs.org/wiki/Performance_tuning  
 ashift=12 (8kB)  
-primarycache-metadata  
+  
 
 Для postgres:  
 ```
@@ -18,7 +18,11 @@ sudo zfs create pgpool/pgdata -o mountpoint=/pgdata
 sudo zfs set recordsize=8k pgpool/pgdata
 sudo zfs set atime=off pgpool/pgdata
 sudo zfs set compression=lz4 pgpool/pgdata
+sudo zfs primarycache=metadata pgpool/pgdata
 ```
 
+```
+sudo zfs get atime,compression,primarycache,recordsize pgpool/pgdata
+```
 
 ## Установка debian на zfs
