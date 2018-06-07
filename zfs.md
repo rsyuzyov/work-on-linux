@@ -17,6 +17,7 @@ sudo zpool create pgpool /dev/sdX
 sudo zfs create pgpool/pgdata -o mountpoint=/pgdata
 sudo zfs set recordsize=8k pgpool/pgdata
 sudo zfs set atime=off pgpool/pgdata
+sudo zfs set compression=lz4 pgpool/pgdata
 ```
 
 
