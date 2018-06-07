@@ -62,7 +62,7 @@ https://www.alv.me/ustanovka-i-konfigurirovanie-zfs-on-linux-v-debian-jessie-8-1
 https://www.libreoffice.org/  
 [Google Docs](https://ru.wikipedia.org/wiki/Google_%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D1%8B)
 [MS Ofiice online](https://ru.wikipedia.org/wiki/Office_Online)  
-https://www.wps.com/
+https://www.wps.com/  
 https://www.openoffice.org/ru/
 
 
