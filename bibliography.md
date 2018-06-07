@@ -46,6 +46,11 @@ https://wiki.archlinux.org/index.php/display_manager
 
 ## Про PostgreSQL
 
+## Про zfs
+https://github.com/zfsonlinux/zfs/wiki/Debian  
+https://github.com/zfsonlinux/zfs/wiki/Debian-Stretch-Root-on-ZFS  
+http://ru.pcmag.com/iznutri/1244/help/zfs-novyi-vzgliad-na-failovye-sistemy?p=7  
+https://www.alv.me/ustanovka-i-konfigurirovanie-zfs-on-linux-v-debian-jessie-8-1/  
 
 ## Про офисный пакет
 
