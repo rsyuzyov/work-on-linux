@@ -7,4 +7,17 @@ Postgres, в отличие от MS SQL, не умеет сжатие данны
 
 ## Установка и создание пула
 
+http://open-zfs.org/wiki/Performance_tuning  
+ashift=12 (8kB)  
+primarycache-metadata  
+
+Для postgres:  
+```
+zpool create pgpool /dev/sdX
+zfs create pgpool/pgdata
+zfs set recordsize=8k pgpool/pgdata
+zfs set atime=off pgpool/pgdata
+```
+
+
 ## Установка debian на zfs
