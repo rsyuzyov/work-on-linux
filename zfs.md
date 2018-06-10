@@ -12,6 +12,7 @@ sudo apt install linux-headers-$(uname -r)
 ln -s /bin/rm /usr/bin/rm
 sudo apt install zfs-dkms zfsutils-linux
 sudo modprobe zfs
+sudo systemctl start zfs*
 ```
 
 Создание пула для postgresql:  
