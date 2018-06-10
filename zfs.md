@@ -19,10 +19,9 @@ sudo systemctl start zfs*
 
 
 ```
-sudo zpool create pgpool /dev/sdx -f
+sudo zpool create -o ashift=12 pgpool /dev/sdx -f
 sudo mkdir /pgdata
 sudo zfs create pgpool/pgdata -o mountpoint=/pgdata
-sudo zfs set ashift=13 pgpool/pgdata
 sudo zfs set recordsize=8k pgpool/pgdata
 sudo zfs set atime=off pgpool/pgdata
 sudo zfs set compression=lz4 pgpool/pgdata
