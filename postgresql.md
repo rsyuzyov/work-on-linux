@@ -1,14 +1,11 @@
 **Установка**  
-https://postgrespro.ru/products/archive/1c  
- 
- После установки:
- ```
- sudo -u postgres psql
- \password
- \q
- ```
-
-https://releases.1c.ru/project/AddCompPostgre  
+Ставим [отсюда](https://releases.1c.ru/project/AddCompPostgre) или [отсюда](https://postgrespro.ru/products/archive/1c).  
+После установки:  
+```
+sudo -u postgres psql
+\password
+\q
+```
 
 
 **Бэкапы**  
