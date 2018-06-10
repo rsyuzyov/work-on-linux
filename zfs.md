@@ -9,14 +9,16 @@ Postgres, в отличие от MS SQL, не умеет сжатие данны
 https://github.com/zfsonlinux/zfs/wiki/Debian
 ```
 sudo apt install linux-headers-$(uname -r)
-sudo apt-get install zfs-dkms zfsutils-linux
+ln -s /bin/rm /usr/bin/rm
+sudo apt install zfs-dkms zfsutils-linux
+sudo modprobe zfs
 ```
 
 Создание пула для postgresql:  
 ```
 sudo zpool create pgpool /dev/sdX
 sudo zfs create pgpool/pgdata -o mountpoint=/pgdata
-sudo zfs set ashift=12 pgpool/pgdata
+sudo zfs set ashift=13 pgpool/pgdata
 sudo zfs set recordsize=8k pgpool/pgdata
 sudo zfs set atime=off pgpool/pgdata
 sudo zfs set compression=lz4 pgpool/pgdata
