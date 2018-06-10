@@ -10,9 +10,9 @@ Sssd - проект от RedHat, болеее свежий, более прос�
 sudo apt install realmd krb5-user software-properties-common packagekit
 sudo realm join contoso.com -U 'adadmin@CONTOSO.COM' -v
 ```
-Если получили ошибку разрешения имени contoso.com: в /etc/nssswitch.conf для параметра hosts поставить первым методом "dns":
+Если получили ошибку разрешения имени contoso.com: в /etc/nssswitch.conf для параметра hosts поставить вторым методом "dns":
 ```
-hosts: dns files ...
+hosts: files dns ...
 ```
 Если при входе через rdp получаем ошибку "login failed", при этом "su adadmin" отрабатывает успешно: в /etc/sssd/sssd.conf изменить параметр:
 ```
