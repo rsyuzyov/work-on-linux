@@ -16,8 +16,10 @@ sudo systemctl start zfs*
 ```
 
 Создание пула для postgresql:  
+
+
 ```
-sudo zpool create pgpool /dev/sdX
+sudo zpool create pgpool /dev/sdx -f
 sudo zfs create pgpool/pgdata -o mountpoint=/pgdata
 sudo zfs set ashift=13 pgpool/pgdata
 sudo zfs set recordsize=8k pgpool/pgdata
