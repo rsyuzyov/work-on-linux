@@ -27,4 +27,4 @@ https://github.com/NikolayS/postgres_dba
 https://github.com/dalibo/pgbadger  
 https://pgmetrics.io/  
 https://github.com/okbob/pspg  
-
+http://powa.readthedocs.io/en/latest/  
