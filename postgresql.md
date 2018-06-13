@@ -1,3 +1,6 @@
+Подготовка в случае linux: используем [ранее подготовленный образ](install-debian.md), добавляем диск; после установки переносим main.  
+В случае windows просто рядом ставим на систему с ms sql, выделив память и проц, либо готовим ВМ, как для ms sql.  
+
 **Установка**  
 Ставим [отсюда](https://releases.1c.ru/project/AddCompPostgre) или [отсюда](https://postgrespro.ru/products/archive/1c).  
 После установки:  
@@ -21,6 +24,7 @@ https://postgrespro.ru/docs/postgrespro/9.6/continuous-archiving
 
 **Мониторинг и анализ**  
 https://github.com/NikolayS/postgres_dba  
+https://github.com/dalibo/pgbadger  
 https://pgmetrics.io/  
 https://github.com/okbob/pspg  
 
