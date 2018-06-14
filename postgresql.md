@@ -15,7 +15,10 @@ sudo -u postgres psql
 https://postgrespro.ru/docs/postgrespro/9.6/continuous-archiving  
 https://pgbackrest.org  
 https://bucardo.org  
-И даже windows-gui для pg_dump https://postgresql-backup.com/  
+И даже windows-gui для pg_dump:  
+https://postgresql-backup.com/  
+http://www.microolap.com/products/database/pagodump/  
+http://www.microolap.com/products/database/pagorestore/  
 
 **Реплики**  
 https://wiki.postgresql.org/wiki/Replication,_Clustering,_and_Connection_Pooling  
