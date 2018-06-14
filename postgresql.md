@@ -25,9 +25,14 @@ https://wiki.postgresql.org/wiki/Replication,_Clustering,_and_Connection_Pooling
 https://postgrespro.ru/docs/postgrespro/9.6/different-replication-solutions  
 https://postgrespro.ru/docs/postgrespro/9.6/continuous-archiving  
 
-**Мониторинг и анализ**  
-https://github.com/NikolayS/postgres_dba  
+**Мониторинг**  
 https://github.com/dalibo/pgbadger  
 https://pgmetrics.io/  
 https://github.com/okbob/pspg  
+https://postgrespro.ru/docs/enterprise/9.6/mamonsu  
+
+**Настройка**
+https://github.com/NikolayS/postgres_dba  
 http://powa.readthedocs.io/en/latest/  
+https://pgtune.leopard.in.ua/#/  
+
