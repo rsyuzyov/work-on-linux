@@ -31,7 +31,7 @@ https://pgmetrics.io/
 https://github.com/okbob/pspg  
 https://postgrespro.ru/docs/enterprise/9.6/mamonsu  
 
-**Настройка**
+**Настройка**  
 https://github.com/NikolayS/postgres_dba  
 http://powa.readthedocs.io/en/latest/  
 https://pgtune.leopard.in.ua/#/  
