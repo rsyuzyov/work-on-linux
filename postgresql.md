@@ -10,6 +10,11 @@ sudo -u postgres psql
 \q
 ```
 
+в ~/.bashrc добавить:
+```
+export PATH="$PATH:/usr/lib/postgresql/PG_VER/bin"
+```
+
 
 **Бэкапы**  
 https://postgrespro.ru/docs/postgrespro/9.6/continuous-archiving  
