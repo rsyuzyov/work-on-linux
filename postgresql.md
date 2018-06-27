@@ -25,7 +25,7 @@ https://postgresql-backup.com/
 http://www.microolap.com/products/database/pagodump/  
 http://www.microolap.com/products/database/pagorestore/  
 
-Совсем простой вариант:  
+Совсем простой вариант, когда PITR (восстановление на момент времени) не нужно:  
 ```
 sudo apt install autopostgresqlbackup  
 ```
