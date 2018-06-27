@@ -25,6 +25,13 @@ https://postgresql-backup.com/
 http://www.microolap.com/products/database/pagodump/  
 http://www.microolap.com/products/database/pagorestore/  
 
+Совсем простой вариант:  
+```
+sudo apt install autopostgresqlbackup  
+```
+Конфиг здесь: `/etc/default/autopostgresqlbackup`, бэкапы кладутся сюда `/var/lib/autopostgresqlbackup"`  
+Не забываем, что бэкапы не стоит хранить вместе с базами! Как минимум делаем nfs или smb ресурс и симлинк на него.  
+
 **Реплики**  
 https://wiki.postgresql.org/wiki/Replication,_Clustering,_and_Connection_Pooling  
 https://postgrespro.ru/docs/postgrespro/9.6/different-replication-solutions  
