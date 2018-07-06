@@ -34,7 +34,7 @@ nameserver 192.1.1.2
 ```
 sudo echo "deb http://ftp.debian.org/debian/ stretch-backports main contrib non-free" > /etc/apt/sources.list.d/backports.list
 sudo apt update 
-sudo apt -t stretch-backports install xrdp
+sudo apt -t stretch-backports install xrdp -y
 ```
 
 ## Включаем в домен
