@@ -32,7 +32,8 @@ nameserver 192.1.1.2
 ## Ставим xrdp
 Чтобы использовать свежие пакеты, подключаем backports:
 ```
-echo "deb http://ftp.debian.org/debian/ stretch-backports main contrib non-free" > /etc/apt/sources.list.d/backports.list
+sudo echo "deb http://ftp.debian.org/debian/ stretch-backports main contrib non-free" > /etc/apt/sources.list.d/backports.list
+sudo apt update 
 sudo apt -t stretch-backports install xrdp
 ```
 
