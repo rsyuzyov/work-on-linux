@@ -44,20 +44,19 @@ sudo systemctl start zfs*
 
 Создание пула для postgresql:  
 ```
-sudo zpool create -o ashift=12 pgpool /dev/sdx -f
-sudo mkdir /mnt/pgdata
-sudo zfs create pgpool/pgdata -o mountpoint=/mnt/pgdata
-sudo zfs set recordsize=8k pgpool/pgdata
-sudo zfs set atime=off pgpool/pgdata
-sudo zfs set compression=lz4 pgpool/pgdata
-sudo zfs set sync=disabled pgpool/pgdata
-sudo zfs primarycache=metadata pgpool/pgdata
+sudo zpool create -o ashift=12 pgdata /dev/sdx -f
+sudo zfs set recordsize=8k pgdata
+sudo zfs set atime=off pgdata
+sudo zfs set compression=lz4 pgdata
+sudo zfs set sync=disabled pgdata
+sudo zfs primarycache=metadata pgdata
 ```
 
 ```
-sudo zfs get atime,compression,primarycache,recordsize pgpool/pgdata
+sudo zfs get atime,compression,primarycache,recordsize,sync,primarycache pgdata
 ```
-"set sync=disable" требует пояснения: в данном случае данные будут попадать на диск с задержкой 5-30 сек, при этом целостность данных на уровне файловой системы гарантирована, а вот на уровне приложения есть вероятность получить рассогласования - не смертельно, но необходимо иметь в виду. В чем профит: скорость работы практически не уступает ext4. По факту это единственный вариант, при котором скорость работы zfs радует, так что или так, или ну его в пень совсем...
+*Для ярых знатоков zfs во избежание недоразумений отметим, что сам по себе пул одновременно является и датасетом, и когда не планируется разбивать пул на несколько датасетов, в создании дополнительных датасетов нужды нет. И да, пулы можно называть не tank :)*  
+"set sync=disable" требует пояснения: в данном случае данные будут попадать на диск с задержкой до 30 сек (!). При этом целостность данных на уровне файловой системы сохраняется, а вот на уровне приложения есть вероятность получить рассогласования - не смертельно, но необходимо иметь в виду. В чем профит: скорость работы практически не уступает ext4. По факту это единственный вариант, при котором скорость работы zfs радует, так что или так, или ну его в пень совсем...
 
 ## Установка debian на zfs
 
