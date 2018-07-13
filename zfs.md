@@ -45,20 +45,16 @@ sudo systemctl start zfs*
 Создание пула для postgresql:  
 ```
 sudo zpool create -o ashift=12 pgdata /dev/{sdx} -f
-sudo zfs set recordsize=8k pgdata
-sudo zfs set atime=off pgdata
-sudo zfs set compression=lz4 pgdata
-sudo zfs set sync=disabled pgdata
-sudo zfs primarycache=metadata pgdata
-```
-
-```
-sudo zfs get atime,compression,primarycache,recordsize,sync,primarycache pgdata
+sudo zfs set recordsize=8k atime=off compression=lz4 sync=disabled primarycache=metadata pgdata
 ```
 "/dev/{sdx}" - здесь может быть диск или раздел диска (посмотреть, что есть: ls /dev/sd*), или просто каталог в случае тестов, например ~/zfstst.  
 Если пул создется на hdd, и есть немного места на ssd, можно на ssd создать раздел и включить его в пул в качестве кэша:
 ```
 sudo zpool create -o ashift=12 pgdata /dev/{hdd} /cache /dev/{ssd} -f
+```
+Проверяем установку параметров:
+```
+sudo zfs get atime,compression,primarycache,recordsize,sync,primarycache pgdata
 ```
 
 *Для ярых знатоков zfs во избежание недоразумений отметим, что сам по себе пул одновременно является и датасетом, и когда не планируется разбивать пул на несколько датасетов, в создании дополнительных датасетов нужды нет. И да, пулы можно называть не tank :)*  
