@@ -33,7 +33,6 @@ dd if=/dev/zero of=./largefile bs=10K count=100000  oflag=direct
 ## Общие принципы
 
 ## Установка и создание пула
-https://github.com/zfsonlinux/zfs/wiki/Debian  
 Установка zfs:  
 ```
 sudo apt install linux-headers-$(uname -r)
@@ -66,6 +65,6 @@ sudo zfs get atime,compression,primarycache,recordsize,sync,primarycache pgdata
 
 
 ## Ссылки
+https://github.com/zfsonlinux/zfs/wiki/Debian  
 http://www.oug.org/files/presentations/zfszilsynchronicity.pdf  
 http://open-zfs.org/wiki/Performance_tuning  
-
