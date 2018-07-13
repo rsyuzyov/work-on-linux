@@ -44,7 +44,7 @@ sudo systemctl start zfs*
 
 Создание пула для postgresql:  
 ```
-sudo zpool create -o ashift=12 pgdata /dev/sdx -f
+sudo zpool create -o ashift=12 pgdata /dev/{sdx} -f
 sudo zfs set recordsize=8k pgdata
 sudo zfs set atime=off pgdata
 sudo zfs set compression=lz4 pgdata
@@ -55,7 +55,14 @@ sudo zfs primarycache=metadata pgdata
 ```
 sudo zfs get atime,compression,primarycache,recordsize,sync,primarycache pgdata
 ```
+"/dev/{sdx}" - здесь может быть диск или раздел диска (посмотреть, что есть: ls /dev/sd*), или просто каталог в случае тестов, например ~/zfstst.  
+Если пул создется на hdd, и есть немного места на ssd, можно на ssd создать раздел и включить его в пул в качестве кэша:
+```
+sudo zpool create -o ashift=12 pgdata /dev/{hdd} /cache /dev/{ssd} -f
+```
+
 *Для ярых знатоков zfs во избежание недоразумений отметим, что сам по себе пул одновременно является и датасетом, и когда не планируется разбивать пул на несколько датасетов, в создании дополнительных датасетов нужды нет. И да, пулы можно называть не tank :)*  
+
 "set sync=disable" требует пояснения: в данном случае данные будут попадать на диск с задержкой до 30 сек (!). При этом целостность данных на уровне файловой системы сохраняется, а вот на уровне приложения есть вероятность получить рассогласования - не смертельно, но необходимо иметь в виду. В чем профит: скорость работы практически не уступает ext4. По факту это единственный вариант, при котором скорость работы zfs радует, так что или так, или ну его в пень совсем...
 
 ## Установка debian на zfs
