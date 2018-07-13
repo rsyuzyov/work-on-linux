@@ -33,7 +33,8 @@ dd if=/dev/zero of=./largefile bs=10K count=100000  oflag=direct
 ## Общие принципы
 
 ## Установка и создание пула
-https://github.com/zfsonlinux/zfs/wiki/Debian
+https://github.com/zfsonlinux/zfs/wiki/Debian  
+Установка zfs:  
 ```
 sudo apt install linux-headers-$(uname -r)
 ln -s /bin/rm /usr/bin/rm
