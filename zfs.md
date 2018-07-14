@@ -66,5 +66,5 @@ sudo zfs get atime,compression,primarycache,recordsize,sync,primarycache pgdata
 
 ## Ссылки
 https://github.com/zfsonlinux/zfs/wiki/Debian  
-http://www.oug.org/files/presentations/zfszilsynchronicity.pdf  
 http://open-zfs.org/wiki/Performance_tuning  
+http://www.oug.org/files/presentations/zfszilsynchronicity.pdf  
