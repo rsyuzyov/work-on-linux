@@ -36,7 +36,7 @@ dd if=/dev/zero of=./largefile bs=10K count=100000  oflag=direct
 Установка zfs:  
 ```
 sudo apt install linux-headers-$(uname -r)
-ln -s /bin/rm /usr/bin/rm
+sudo ln -s /bin/rm /usr/bin/rm
 sudo apt install zfs-dkms zfsutils-linux
 sudo modprobe zfs
 sudo systemctl start zfs*
