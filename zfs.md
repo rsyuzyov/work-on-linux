@@ -53,7 +53,11 @@ sudo zpool create -o ashift=12 pgdata /dev/{hdd} /cache /dev/{ssd} -f
 ```
 Устанавливаем и сразу проверяем параметры:
 ```
-sudo zfs set recordsize=8k atime=off compression=lz4 sync=disabled primarycache=metadata pgdata
+sudo zfs set recordsize=8k pgdata
+sudo zfs set atime=off pgdata
+sudo zfs set compression=lz4 pgdata
+sudo zfs set sync=disabled pgdata
+sudo zfs set primarycache=metadata pgdata
 sudo zfs get atime,compression,primarycache,recordsize,sync,primarycache pgdata
 ```
 
