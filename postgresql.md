@@ -31,7 +31,7 @@ select pg_reload_conf();
 \q
 ```
 По параметру "wal_sync_method":  
-Запускаем /usr/lib/postgresql/9.6/bin/pg_test_fsync и смотрим на результаты: метод с наибольшими ops/sec будет оптимальным.
+Запускаем /usr/lib/postgresql/{PG_VER}/bin/pg_test_fsync и смотрим на результаты: метод с наибольшими ops/sec будет оптимальным.
 Для windows это обычно open_datasync, для linux - fdsatasync.  
 
 **Бэкапы**  
