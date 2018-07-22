@@ -15,6 +15,24 @@ sudo -u postgres psql
 export PATH="$PATH:/usr/lib/postgresql/PG_VER/bin"
 ```
 
+**Настройка**
+Прежде всего необходимо задать базовые параметры, зависящие от типа дисков, количества памяти и ядер и т.п.  
+На сайте https://pgtune.leopard.in.ua/, укзаываем параметры нашего окружения, нажимаем GENERATE.  
+Результаты вносим в /etc/postgresql/{PG_VER}/main/postgresql.conf.  
+Дополнительно находим и изменяем параметры:  
+```
+synchronous_commit = off
+wal_sync_method = fdatasync 
+```
+Применяем настройки:  
+```
+sudo -u postgres psql
+select pg_reload_conf();
+\q
+```
+По параметру "wal_sync_method":  
+Запускаем /usr/lib/postgresql/9.6/bin/pg_test_fsync и смотрим на результаты: метод с наибольшими ops/sec будет оптимальным.
+Для windows это обычно open_datasync, для linux - fdsatasync.  
 
 **Бэкапы**  
 https://postgrespro.ru/docs/postgrespro/9.6/continuous-archiving  
