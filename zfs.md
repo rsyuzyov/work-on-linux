@@ -35,6 +35,7 @@ dd if=/dev/zero of=./largefile bs=10K count=100000  oflag=direct
 ## Установка и создание пула
 Установка zfs:  
 ```
+sudo apt update
 sudo apt install -y linux-headers-$(uname -r)
 sudo ln -s /bin/rm /usr/bin/rm
 sudo apt install -y zfs-dkms zfsutils-linux
