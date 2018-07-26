@@ -51,6 +51,7 @@ https://wiki.archlinux.org/index.php/display_manager
 http://postgresql.leopard.in.ua/  
 https://postgrespro.ru/docs/  
 http://www.gilev.ru/category/postgresql-2/  
+https://postgrespro.ru/education  
 
 ## Про zfs
 https://github.com/zfsonlinux/zfs/wiki/Debian  
