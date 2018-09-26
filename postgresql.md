@@ -3,6 +3,20 @@
 
 **Установка**  
 Ставим [отсюда](https://releases.1c.ru/project/AddCompPostgre) или [отсюда](https://postgrespro.ru/products/archive/1c).  
+
+ВНИМАНИЕ! Каталоги исполняемых и конфигурационных файлов для PG9 и PG10 отличаются:  
+TODO: прописать, где по-умолчанию лежат bin и data для 9 и 10  
+
+Если ОС без русской локали (например готовые lxc-контейнеры turnkey в proxmox), предварительно нужно ее установить:  
+```
+sudo dpkg-reconfigure -plow locales
+```
+Находим в списке локаль ru_RU.URF-8, помечаем и завершаем настройку.  
+Далее при инициализации необходимо указать encoding и locale, для:
+```
+/opt/pgpro/1c-10/bin/pg-setup initdb --encoding=UTF8 --locale=ru_RU.UTF-8
+```
+
 После установки:  
 ```
 sudo -u postgres psql
@@ -17,7 +31,7 @@ export PATH="$PATH:/usr/lib/postgresql/PG_VER/bin"
 
 **Настройка**
 Прежде всего необходимо задать базовые параметры, зависящие от типа дисков, количества памяти и ядер и т.п.  
-На сайте https://pgtune.leopard.in.ua/, укзаываем параметры нашего окружения, нажимаем GENERATE.  
+На сайте https://pgtune.leopard.in.ua/ указываем параметры нашего окружения, нажимаем GENERATE.  
 Результаты вносим в /etc/postgresql/{PG_VER}/main/postgresql.conf.  
 Дополнительно находим и изменяем параметры:  
 ```
