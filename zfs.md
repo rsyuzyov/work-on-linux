@@ -58,7 +58,7 @@ sudo zfs set recordsize=8k pgdata
 sudo zfs set atime=off pgdata
 sudo zfs set compression=lz4 pgdata
 sudo zfs set sync=disabled pgdata
-sudo zfs set primarycache=metadata pgdata
+sudo zfs set primarycache=all pgdata
 sudo zfs get atime,compression,primarycache,recordsize,sync,primarycache pgdata
 ```
 
