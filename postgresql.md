@@ -11,8 +11,8 @@ TODO: прописать, где по-умолчанию лежат bin и data 
 ```
 sudo dpkg-reconfigure -plow locales
 ```
-Находим в списке локаль ru_RU.URF-8, помечаем и завершаем настройку.  
-Далее при инициализации необходимо указать encoding и locale, для:
+Находим в списке локаль ru_RU.UTF-8, помечаем и завершаем настройку.  
+Далее при инициализации инстанса необходимо указать encoding и locale, для:
 ```
 /opt/pgpro/1c-10/bin/pg-setup initdb --encoding=UTF8 --locale=ru_RU.UTF-8
 ```
