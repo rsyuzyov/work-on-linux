@@ -29,7 +29,7 @@ sudo -u postgres psql
 export PATH="$PATH:/usr/lib/postgresql/PG_VER/bin"
 ```
 
-**Настройка**
+**Настройка**  
 Прежде всего необходимо задать базовые параметры, зависящие от типа дисков, количества памяти и ядер и т.п.  
 На сайте https://pgtune.leopard.in.ua/ указываем параметры нашего окружения, нажимаем GENERATE.  
 Результаты вносим в /etc/postgresql/{PG_VER}/main/postgresql.conf.  
