@@ -2,9 +2,9 @@
 
 Практически все возможные способы кратко, но емко описаны [здесь](https://rhelblog.redhat.com/2015/02/04/overview-of-direct-integration-options/).  
 По большому счету есть 2 способа: через samba и через sssd (realm).  
-Samba - проект с долгой историей и кучей возможностей, но он достаточно тяжел, не совсем тривиален в настройке и менее богат возможностями, чем realm.
-Sssd - проект от RedHat, болеее свежий, более простой и более функциональный.  
-Сравнение samba и sssd [здесь] (https://rhelblog.redhat.com/2015/04/02/sssd-vs-winbind/).  
+Samba - проект с долгой историей и кучей возможностей, но он достаточно тяжел, не совсем тривиален в настройке и менее богат возможностями, чем realm.  
+Sssd - проект от RedHat, болеее свежий и простой.  
+Сравнение samba и sssd [здесь](https://rhelblog.redhat.com/2015/04/02/sssd-vs-winbind/).  
 Второй способ более современный и простой, и даже приведен в [официальной инструкции microsoft](https://docs.microsoft.com/ru-ru/sql/linux/sql-server-linux-active-directory-authentication?view=sql-server-linux-2017#join).
 ```
 sudo apt install realmd krb5-user software-properties-common packagekit
