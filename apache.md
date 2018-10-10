@@ -68,5 +68,9 @@ net stop Apache; net start Apache
 ```
 /opt/1C/v8.3/x86_64/webinst -apache24 -wsdir mybase -dir /var/www/mybase -connstr "Srvr=myserver;Ref=mybase;" -confPath /etc/apache2/httpd.conf
 ```
+win:
+```
+"C:\Program Files\1cv8\8.3.13.1549\bin\webinst.exe" -apache24 -wsdir mybase -dir "C:\Program Files\Apache24\htdocs\mybase" -connstr "Srvr=myserver;Ref=mybase;" -confPath "C:\Program Files\Apache24\conf\httpd.conf"
+```
 
 ### Авторизация средствами ОС
