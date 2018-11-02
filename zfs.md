@@ -63,7 +63,7 @@ sudo zfs get atime,compression,primarycache,recordsize,sync,primarycache pgdata
 ```
 Далее создаем /etc/modprobe.d/zfs.conf, в него записываем:
 ```
-options zfs zfs_arc_max=536870912
+options zfs zfs_arc_max=4294967296
 options zfs_prefetch_disable=1
 ```
 Затем обновляем initramfs:
@@ -75,7 +75,8 @@ update-initramfs -u -k all
 
 
 ## Заметки
-Статистика: `cat /proc/spl/kstat/zfs/arcstats`  
+Статистика ARC `cat /proc/spl/kstat/zfs/arcstats`  
+iostat `zpool iostat -v`
 
 
 ## Ссылки
