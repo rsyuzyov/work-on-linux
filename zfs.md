@@ -31,6 +31,7 @@ dd if=/dev/zero of=./largefile bs=10K count=100000  oflag=direct
 
 
 ## Общие принципы
+...  
 
 ## Установка и создание пула
 Установка zfs:  
@@ -61,10 +62,15 @@ sudo zfs set sync=disabled pgdata
 sudo zfs set primarycache=all pgdata
 sudo zfs get atime,compression,primarycache,recordsize,sync,primarycache pgdata
 ```
-Далее создаем /etc/modprobe.d/zfs.conf, в него записываем:
+## Ограничение потребления памяти
+Создаем /etc/modprobe.d/zfs.conf, в него записываем:
 ```
 options zfs zfs_arc_max=4294967296
+```
+Отключение "умного" кэширования (только при необходимости, например на хосте proxmox):  
+```
 options zfs_prefetch_disable=1
+
 ```
 Затем обновляем initramfs:
 ```
@@ -72,14 +78,16 @@ update-initramfs -u -k all
 ```
 
 ## Установка debian на zfs
-
+https://github.com/zfsonlinux/zfs/wiki/Debian-Stretch-Root-on-ZFS  
 
 ## Заметки
-Статистика ARC `cat /proc/spl/kstat/zfs/arcstats`  
-iostat `zpool iostat -v`
+[Параметры](https://github.com/zfsonlinux/zfs/wiki/ZFS-on-Linux-Module-Parameters): `cat /sys/module/zfs/parameters/PARAMETER`  
+Статистика ARC: `cat /proc/spl/kstat/zfs/arcstats`  
+iostat: `zpool iostat -v`
 
 
 ## Ссылки
 https://github.com/zfsonlinux/zfs/wiki/Debian  
 http://open-zfs.org/wiki/Performance_tuning  
 http://www.oug.org/files/presentations/zfszilsynchronicity.pdf  
+https://github.com/zfsonlinux/zfs/wiki/ZFS-on-Linux-Module-Parameters  
