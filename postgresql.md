@@ -33,6 +33,7 @@ export PATH="$PATH:/usr/lib/postgresql/PG_VER/bin"
 Прежде всего необходимо задать базовые параметры, зависящие от типа дисков, количества памяти и ядер и т.п.  
 На сайте https://pgtune.leopard.in.ua/ указываем параметры нашего окружения, нажимаем GENERATE.  
 Результаты вносим в /etc/postgresql/{PG_VER}/main/postgresql.conf.  
+Также выполняем [рекомендации для 1С](https://postgrespro.ru/docs/postgrespro/10/config-one-c)  
 Дополнительно находим и изменяем параметры:  
 ```
 synchronous_commit = off
@@ -47,6 +48,7 @@ select pg_reload_conf();
 По параметру "wal_sync_method":  
 Запускаем /usr/lib/postgresql/{PG_VER}/bin/pg_test_fsync и смотрим на результаты: метод с наибольшими ops/sec будет оптимальным.
 Для windows это обычно open_datasync, для linux - fdsatasync.  
+
 
 **Бэкапы**  
 https://postgrespro.ru/docs/postgrespro/9.6/continuous-archiving  
