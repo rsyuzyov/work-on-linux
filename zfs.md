@@ -69,12 +69,18 @@ options zfs zfs_arc_max=4294967296
 ```
 Отключение "умного" кэширования (только при необходимости, например на хосте proxmox):  
 ```
-options zfs_prefetch_disable=1
+options zfs zfs_prefetch_disable=1
 
 ```
 Затем обновляем initramfs:
 ```
 update-initramfs -u -k all
+```
+
+Чтобы не ждать перезагрузку, можно менять параметры на лету. Например:
+```
+echo 4294967296 > /sys/module/zfs/parameters/zfs_arc_max
+cat /sys/module/zfs/parameters/zfs_arc_max
 ```
 
 ## Установка debian на zfs
