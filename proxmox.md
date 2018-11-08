@@ -4,8 +4,8 @@
 Импорт ВМ  
 Бэкапы, репликация  
 
-
 ### Заметки
+Если при установке системы все валится и виснет с ошибками, связанными с usb - отключить в биосе usb 3.0 контроллер - материнка скорее всего "переходного периода"  
 Где лежат конфиги ВМ: /etc/pve/qemu-server/10*.conf  
 Компрессия qcow: `qemu-img convert -O qcow2 -c source-disk.qcow2 dest-disl.qcow2`  
 Импорт дисков: `qm importdisk vm-id disk.vhd storagename --format=raw|qcow`  
@@ -23,3 +23,4 @@ systemctl start pve-cluster
 rm -rf /var/lib/lxcfs/*
 systemctl start lxcfs
 ```
+
