@@ -49,6 +49,11 @@ sudo -u postgres psql
 select pg_reload_conf();
 \q
 ```
+либо перезапускаем службу:  
+```
+systemctl restart postgrespro-1c-10
+```
+
 По параметру "wal_sync_method":  
 Запускаем /usr/lib/postgresql/{PG_VER}/bin/pg_test_fsync и смотрим на результаты: метод с наибольшими ops/sec будет оптимальным.
 Для windows это обычно open_datasync, для linux - fdsatasync.  
