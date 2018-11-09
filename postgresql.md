@@ -53,6 +53,10 @@ select pg_reload_conf();
 Запускаем /usr/lib/postgresql/{PG_VER}/bin/pg_test_fsync и смотрим на результаты: метод с наибольшими ops/sec будет оптимальным.
 Для windows это обычно open_datasync, для linux - fdsatasync.  
 
+**Заметки**
+Бинари pg9: /usr/lib/postgresql/9.6/bin
+Бинари pg10: /opt/pgpro/1c-10/bin
+postgresql.conf: `SHOW config_file;`  для pg10 это `/var/lib/pgpro/1c-10/data/postgresql.conf`  
 
 **Бэкапы**  
 https://postgrespro.ru/docs/postgrespro/9.6/continuous-archiving  
