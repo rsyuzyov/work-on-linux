@@ -19,6 +19,11 @@ hosts: files dns ...
 access_provider = simple
 ```
 
+Готово! Проверям результат:  
+```
+realm discover contoso.com
+```
+
 ## Дополнения
 Чтобы хомяк создавался автоматически:  
 debian: в /etc/pam.d/common-session-noninteractive в самый конец добавить:
