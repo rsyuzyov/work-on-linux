@@ -2,7 +2,7 @@
 В случае windows просто рядом ставим на систему с ms sql, выделив память и проц, либо готовим ВМ, как для ms sql.  
 
 **Установка**  
-Ставим [отсюда](https://releases.1c.ru/project/AddCompPostgre) или [отсюда](https://postgrespro.ru/products/archive/1c).  
+Ставим [отсюда (1С)](https://releases.1c.ru/project/AddCompPostgre), а лучше [отсюда (pgpro)](https://postgrespro.ru/products/archive/1c).  
 
 ВНИМАНИЕ! Каталоги исполняемых и конфигурационных файлов для PG9 и PG10 отличаются:  
 TODO: прописать, где по-умолчанию лежат bin и data для 9 и 10  
@@ -26,7 +26,11 @@ sudo -u postgres psql
 
 в ~/.bashrc добавить:
 ```
-export PATH="$PATH:/usr/lib/postgresql/PG_VER/bin"
+export PATH="$PATH:/usr/lib/postgresql/9.6/bin"
+```
+либо
+```
+export PATH="$PATH:/opt/pgpro/1c-10/bin"
 ```
 
 **Настройка**  
