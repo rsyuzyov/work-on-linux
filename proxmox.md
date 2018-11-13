@@ -37,3 +37,14 @@ rm -rf /var/lib/lxcfs/*
 systemctl start lxcfs
 ```
 
+Если случилось "cluster not ready - no quorum?":  
+Если узлов больше одного и `pvecm status` говорит о проблемах с ущзлами, то:  
+```
+pve expected 1
+```
+иначе если узел один или 'pvecm status' говорит, что кластер не запущен, то смотрим ошибки:  
+```
+systemctl status pve*
+journalctl -b
+```
+и действуем по обстановке 
