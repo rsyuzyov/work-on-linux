@@ -37,7 +37,7 @@ authconfig --enablemkhomedir --update
 
 Полезные правки /etc/sssd/sssd.conf:
 ```
-# Чтобы не вводить имя домена при авторизации
+# Чтобы не вводить имя домена при авторизации; крайне желательно для терминального сервера на xrdp, чтобы не колдовать с pam-xrdp
 use_fully_qualified_names = False
 # Чтобы хомяк создавался по адресу /home/contoso/<user>
 fallback_homedir = /home/contoso/%u
