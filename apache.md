@@ -7,13 +7,13 @@ sudo apt install apache2
 ```
 **windows:**  
 ```
-choco install apache-httpd --params "/installLocation:C:\Progra~1 /port:80 /serviceName:Apache" -y
+choco install apache-httpd --params "/installLocation:'C:\Program Files' /port:80 /serviceName:Apache" -y
 ```
 <details>
   <summary>Если возникли ошибки при установке...</summary>
   
   Скорее всего причина проста: порты 80 или 443 уже кем-то заняты. Весьма вероятно, что уже установлен IIS ~~и его нужно снести к ежам~~.
-В этом случае либо освобождаем порты, либо меняем порты на нестандартные:  в C:\Program Files\Apache24\conf\httpd.conf меняем  
+В этом случае либо освобождаем порты, либо меняем их на нестандартные: в C:\Program Files\Apache24\conf\httpd.conf меняем  
 ```
 Listen 80
 ```
