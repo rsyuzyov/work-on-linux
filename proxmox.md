@@ -22,7 +22,9 @@ dmesg | grep apparmor | tail
 
 Компрессия qcow: `qemu-img convert -O qcow2 -c source-disk.qcow2 dest-disl.qcow2`  
 Импорт дисков: `qm importdisk vm-id disk.vhd storagename --format=raw|qcow`  
-Для zfs единственный доступный формат - raw, сжатие и все остальные плюшки zfs делает сама
+Для zfs единственный доступный формат - raw, сжатие и все остальные плюшки zfs делает сама.  
+
+Репликация выполняется на уровне хранилищ и доступна только на zfs, так как использует снимки и инкременты.  
 
 Пересоздание кластера pve:  
 ```
