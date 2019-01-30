@@ -3,16 +3,10 @@ Apache httpd - веб-сервер, маленький, шустрый, прос
 Внимание: в коде фрагменты типа "{...}", например "{PublicationName}", необходимо заменить на реальные значения, например "trade".  
 
 ### Установка  
-**debian:**  
-```
-sudo apt install apache2
-```
-**windows:**  
-```
-choco install apache-httpd --params "/installLocation:'C:\Program Files' /port:80 /serviceName:Apache" -y
-```
+|**debian:**|**windows:**|  
+|`sudo apt install apache2`|`choco install apache-httpd --params "/installLocation:'C:\Program Files' /port:80 /serviceName:Apache" -y`|
 <details>
-  <summary>Если возникли ошибки при установке...</summary>
+<summary>Если возникли ошибки при установке...</summary>
   
 Скорее всего причина проста: порты 80 или 443 уже кем-то заняты.  
 Весьма вероятно, что уже установлен IIS ~~и его нужно снести к ежам~~.  
