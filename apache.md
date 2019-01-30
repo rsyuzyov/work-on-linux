@@ -20,14 +20,15 @@ LoadModule ssl_module modules/mod_ssl.so
   
 ### Публикация вручную  
 Публикация средствами 1С - для слабаков, публикуем вручную. Открываем конфиг:  
-#####  
+######  
 | **debian** | **windows** |
 | ---------- | ----------- |
 | `/etc/apache2/apache2.conf` | `C:\Program Files\Apache24\conf\httpd.conf` |
 
 Добавляем обработчик для 1С:  
+######  
 | **debian** | **windows** |
-|---|---|
+| ---------- | ----------- |
 | `LoadModule _1cws_module "/opt/1C/v8.3/x86_64/wsap24.so"` | `LoadModule _1cws_module "C:/Program Files/1cv8/{PlatformVersion}/bin/wsap24.dll"` |  
 Стандартно 1С при публикации вставляет свою запись перед строкой загрузки модуля slotmem_plain_module, можно найти ее и вставить туда же.   
   
@@ -64,12 +65,14 @@ Alias "/{PublicationName}" "{PublicationCatalog}/"
 ```
 
 Перезапускаем apache:  
+######  
 | **debian** | **windows** |
 | --- | --- |
 | `sudo systemctl restart apache2` | `net stop Apache; net start Apache` |  
 
 ### Публикация с помощью webinst  
 Каждый раз так утруждаться тяжело, поэтому можно заменить все одной строкой:  
+######  
 | **debian** | **windows** |
 | --- | --- |
 | `/opt/1C/v8.3/x86_64/webinst -apache24 -wsdir mybase -dir /var/www/mybase -connstr "Srvr=myserver;Ref=mybase;" -confPath /etc/apache2/httpd.conf` | `"C:\Program Files\1cv8\{PlatformVersion}\bin\webinst.exe" -apache24 -wsdir mybase -dir "C:\Program Files\Apache24\htdocs\mybase" -connstr "Srvr=myserver;Ref=mybase;" -confPath "C:\Program Files\Apache24\conf\httpd.conf"` |  
