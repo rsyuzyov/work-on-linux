@@ -4,7 +4,7 @@ Apache httpd - веб-сервер, маленький, шустрый, прос
 
 ### Установка  
 | **debian** | **windows** |
-|---|---|
+| ---------- | ----------- |
 | `sudo apt install apache2` | `choco install apache-httpd --params "/installLocation:'C:\Program Files' /port:80 /serviceName:Apache" -y` |  
 
 ### Ошибки при установке  
@@ -23,7 +23,7 @@ LoadModule ssl_module modules/mod_ssl.so
   
 Открываем конфиг:  
 | **debian** | **windows** |
-| --- | --- |
+| ---------- | ----------- |
 | `/etc/apache2/apache2.conf` | `C:\Program Files\Apache24\conf\httpd.conf` |
 
 Добавляем обработчик для 1С:  
