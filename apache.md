@@ -7,7 +7,7 @@ Apache httpd - веб-сервер, маленький, шустрый, прос
 |---|---|
 | `sudo apt install apache2` | `choco install apache-httpd --params "/installLocation:'C:\Program Files' /port:80 /serviceName:Apache" -y` |  
 
-<details>
+#<details>
 <summary>Если возникли ошибки при установке...</summary>
   
 Скорее всего причина проста: порты 80 или 443 уже кем-то заняты.  
@@ -19,7 +19,7 @@ Apache httpd - веб-сервер, маленький, шустрый, прос
 ```
 LoadModule ssl_module modules/mod_ssl.so
 ```
- </details>
+#</details>
   
 ### Публикация вручную
 Публикация средствами 1С - для слабаков, публикуем вручную:  
