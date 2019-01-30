@@ -3,8 +3,8 @@ Apache httpd - веб-сервер, маленький, шустрый, прос
 Внимание: в коде фрагменты типа "{...}", например "{PublicationName}", необходимо заменить на реальные значения, например "trade".  
 
 ### Установка  
-|**debian:**|**windows:**|  
-|`sudo apt install apache2`|`choco install apache-httpd --params "/installLocation:'C:\Program Files' /port:80 /serviceName:Apache" -y`|
+| **debian:** | **windows:** |  
+| `sudo apt install apache2` | `choco install apache-httpd --params "/installLocation:'C:\Program Files' /port:80 /serviceName:Apache" -y` |  
 <details>
 <summary>Если возникли ошибки при установке...</summary>
   
