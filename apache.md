@@ -21,13 +21,13 @@ LoadModule ssl_module modules/mod_ssl.so
  </details>
   
 ### Публикация вручную
-Публикация средствами 1С - для слабаков, публикуем вручную:
+Публикация средствами 1С - для слабаков, публикуем вручную:  
 
-Готовим конфиг
+Открываем конфиг:  
 | **debian** | **windows** |
 |---|---|
 | `/etc/apache2/apache2.conf` | `C:\Program Files\Apache24\conf\httpd.conf` |  
-Добавляем обработчик для 1С:
+Добавляем обработчик для 1С:  
 | **debian** | **windows** |
 |---|---|
 | `LoadModule _1cws_module "/opt/1C/v8.3/x86_64/wsap24.so"` | `LoadModule _1cws_module "C:/Program Files/1cv8/{PlatformVersion}/bin/wsap24.dll"` |  
