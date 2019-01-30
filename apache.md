@@ -7,9 +7,7 @@ Apache httpd - веб-сервер, маленький, шустрый, прос
 |---|---|
 | `sudo apt install apache2` | `choco install apache-httpd --params "/installLocation:'C:\Program Files' /port:80 /serviceName:Apache" -y` |  
 
-<#details>
-<summary>Если возникли ошибки при установке...</summary>
-  
+### Ошибки при установке  
 Скорее всего причина проста: порты 80 или 443 уже кем-то заняты.  
 Весьма вероятно, что уже установлен IIS ~~и его нужно снести к ежам~~.  
 В этом случае либо освобождаем порты, либо меняем их на нестандартные:  
@@ -19,11 +17,10 @@ Apache httpd - веб-сервер, маленький, шустрый, прос
 ```
 LoadModule ssl_module modules/mod_ssl.so
 ```
-<#/details>
   
-### Публикация вручную
+### Публикация вручную  
 Публикация средствами 1С - для слабаков, публикуем вручную:  
-
+  
 Открываем конфиг:  
 | **debian** | **windows** |
 | --- | --- |
@@ -49,7 +46,7 @@ Alias "/{PublicationName}" "{PublicationCatalog}/"
 
 ```
   
-Создаем файл default.vrd по адресу {PublicationCatalog} следующего содержания:
+Создаем файл default.vrd по адресу {PublicationCatalog} следующего содержания:  
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <point xmlns="http://v8.1c.ru/8.2/virtual-resource-system"
@@ -69,14 +66,14 @@ Alias "/{PublicationName}" "{PublicationCatalog}/"
 
 Перезапускаем apache:  
 | **debian** | **windows** |
-|---|---|
+| --- | --- |
 | `sudo systemctl restart apache2` | `net stop Apache; net start Apache` |  
 
 ### Публикация с помощью webinst  
 Каждый раз так утруждаться тяжело, поэтому можно заменить все одной строкой:  
 | **debian** | **windows** |
-|---|---|
-`/opt/1C/v8.3/x86_64/webinst -apache24 -wsdir mybase -dir /var/www/mybase -connstr "Srvr=myserver;Ref=mybase;" -confPath /etc/apache2/httpd.conf` | `"C:\Program Files\1cv8\{PlatformVersion}\bin\webinst.exe" -apache24 -wsdir mybase -dir "C:\Program Files\Apache24\htdocs\mybase" -connstr "Srvr=myserver;Ref=mybase;" -confPath "C:\Program Files\Apache24\conf\httpd.conf"` |  
+| --- | --- |
+| `/opt/1C/v8.3/x86_64/webinst -apache24 -wsdir mybase -dir /var/www/mybase -connstr "Srvr=myserver;Ref=mybase;" -confPath /etc/apache2/httpd.conf` | `"C:\Program Files\1cv8\{PlatformVersion}\bin\webinst.exe" -apache24 -wsdir mybase -dir "C:\Program Files\Apache24\htdocs\mybase" -connstr "Srvr=myserver;Ref=mybase;" -confPath "C:\Program Files\Apache24\conf\httpd.conf"` |  
 
 ### Авторизация средствами ОС
 ...  
