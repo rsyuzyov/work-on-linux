@@ -1,4 +1,5 @@
 Apache httpd - веб-сервер, маленький, шустрый, простой и кроссплатформенный. Нафига нам IIS?
+Внимание: в коде фрагменты типа "{...}", например "{PublicationName}", необходимо заменить на реальные значения, например "trade".  
 
 ### Установка  
 **debian:**  
@@ -45,13 +46,40 @@ LoadModule _1cws_module "/opt/1C/v8.3/x86_64/wsap24.so"
 ```
 win:
 ```
-LoadModule _1cws_module "C:/Program Files/1cv8/8.3.10.2466/bin/wsap24.dll"
+LoadModule _1cws_module "C:/Program Files/1cv8/{PlatformVersion}/bin/wsap24.dll"
 ```
-Вставляем описание приложения:  
+Стандартно 1С при публикации вставляет свою запись перед строкой загрузки модуля slotmem_plain_module, можно найтии ее и вставить туда же.   
+  
+Далее, где нибудь после окончания секции `<Directory "${SRVROOT}/cgi-bin">` вставляем описание приложения:  
 ```
+# 1c publication
+Alias "/{PublicationName}" "{PublicationCatalog}/"
+<Directory "{PublicationCatalog}/">
+    AllowOverride All
+    Options None
+    Require all granted
+    SetHandler 1c-application
+    ManagedApplicationDescriptor "{PublicationCatalog}/default.vrd"
+</Directory>
+
 ```
-Создаем vrd-файл следующего содержания и кладем в ...:
+  
+Создаем файл default.vrd по адресу {PublicationCatalog} следующего содержания:
 ```
+<?xml version="1.0" encoding="UTF-8"?>
+<point xmlns="http://v8.1c.ru/8.2/virtual-resource-system"
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		base="/{PublicationName}"
+		ib="{ConnectionString}">
+	<ws publishExtensionsByDefault="true" />
+	<httpServices publishExtensionsByDefault="true"/>
+	<standardOdata enable="true"
+			reuseSessions="autouse"
+			sessionMaxAge="20"
+			poolSize="10"
+			poolTimeout="5"/>
+</point>
 ```
 
 Перезапускаем apache:  
@@ -70,7 +98,9 @@ net stop Apache; net start Apache
 ```
 win:
 ```
-"C:\Program Files\1cv8\8.3.13.1549\bin\webinst.exe" -apache24 -wsdir mybase -dir "C:\Program Files\Apache24\htdocs\mybase" -connstr "Srvr=myserver;Ref=mybase;" -confPath "C:\Program Files\Apache24\conf\httpd.conf"
+"C:\Program Files\1cv8\{PlatformVersion}\bin\webinst.exe" -apache24 -wsdir mybase -dir "C:\Program Files\Apache24\htdocs\mybase" -connstr "Srvr=myserver;Ref=mybase;" -confPath "C:\Program Files\Apache24\conf\httpd.conf"
 ```
 
 ### Авторизация средствами ОС
+...  
+
