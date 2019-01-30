@@ -15,7 +15,8 @@ choco install apache-httpd --params "/installLocation:'C:\Program Files' /port:8
   <summary>Если возникли ошибки при установке...</summary>
   
   Скорее всего причина проста: порты 80 или 443 уже кем-то заняты. Весьма вероятно, что уже установлен IIS ~~и его нужно снести к ежам~~.
-В этом случае либо освобождаем порты, либо меняем их на нестандартные: в C:\Program Files\Apache24\conf\httpd.conf меняем `Listen 80` на `Listen 5080`  
+В этом случае либо освобождаем порты, либо меняем их на нестандартные:  
+Для http: в C:\Program Files\Apache24\conf\httpd.conf меняем `Listen 80` на `Listen 5080`  
 Для https: в C:\Program Files\Apache24\conf\extra\httpd-ahssl.conf меняем `Listen 443` на `Listen 5443`  
 Либо можно просто отключить ssl, поставив # перед строкой в c:\Program Files\Apache24\httpd.conf:
 ```
