@@ -33,7 +33,7 @@ LoadModule ssl_module modules/mod_ssl.so
 
 Стандартно 1С при публикации вставляет свою запись перед строкой загрузки модуля slotmem_plain_module, можно найти ее и вставить туда же.   
   
-Далее, где нибудь после окончания секции `<Directory "${SRVROOT}/cgi-bin">` вставляем описание приложения:  
+Где-нибудь после окончания секции `<Directory "${SRVROOT}/cgi-bin">` вставляем описание приложения:  
 ```
 # 1c publication
 Alias "/{PublicationName}" "{PublicationCatalog}/"
