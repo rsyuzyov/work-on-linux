@@ -6,6 +6,7 @@ Apache httpd - веб-сервер, маленький, шустрый, прос
 | **debian** | **windows** |
 |---|---|
 | `sudo apt install apache2` | `choco install apache-httpd --params "/installLocation:'C:\Program Files' /port:80 /serviceName:Apache" -y` |  
+
 <details>
 <summary>Если возникли ошибки при установке...</summary>
   
@@ -24,9 +25,10 @@ LoadModule ssl_module modules/mod_ssl.so
 Публикация средствами 1С - для слабаков, публикуем вручную:  
 
 Открываем конфиг:  
-| **debian** | **windows** |
+| **debian** | **windows** |  
 |---|---|
 | `/etc/apache2/apache2.conf` | `C:\Program Files\Apache24\conf\httpd.conf` |  
+
 Добавляем обработчик для 1С:  
 | **debian** | **windows** |
 |---|---|
@@ -70,7 +72,7 @@ Alias "/{PublicationName}" "{PublicationCatalog}/"
 |---|---|
 | `sudo systemctl restart apache2` | `net stop Apache; net start Apache` |  
 
-### Публикация с помощью webinst
+### Публикация с помощью webinst  
 Каждый раз так утруждаться тяжело, поэтому можно заменить все одной строкой:  
 | **debian** | **windows** |
 |---|---|
