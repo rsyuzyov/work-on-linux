@@ -30,6 +30,7 @@ LoadModule ssl_module modules/mod_ssl.so
 | **debian** | **windows** |
 | ---------- | ----------- |
 | `LoadModule _1cws_module "/opt/1C/v8.3/x86_64/wsap24.so"` | `LoadModule _1cws_module "C:/Program Files/1cv8/{PlatformVersion}/bin/wsap24.dll"` |  
+
 Стандартно 1С при публикации вставляет свою запись перед строкой загрузки модуля slotmem_plain_module, можно найти ее и вставить туда же.   
   
 Далее, где нибудь после окончания секции `<Directory "${SRVROOT}/cgi-bin">` вставляем описание приложения:  
