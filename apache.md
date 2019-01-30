@@ -25,9 +25,9 @@ LoadModule ssl_module modules/mod_ssl.so
 Публикация средствами 1С - для слабаков, публикуем вручную:  
 
 Открываем конфиг:  
-| **debian** | **windows** |  
-|---|---|
-| `/etc/apache2/apache2.conf` | `C:\Program Files\Apache24\conf\httpd.conf` |  
+ **debian** | **windows**
+--- | ---
+ `/etc/apache2/apache2.conf` | `C:\Program Files\Apache24\conf\httpd.conf` 
 
 Добавляем обработчик для 1С:  
 | **debian** | **windows** |
