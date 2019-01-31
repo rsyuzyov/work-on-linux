@@ -5,7 +5,7 @@ Apache httpd - веб-сервер, маленький, шустрый, прос
 ###### 
 | Параметр | Описание |
 | --- | --- |
-| {PublicationName} | имя корневой ссылки, http://localhost/{PublicationName} |
+| {PublicationName} | имя корневой ссылки, http://localhost/{PublicationName}. Если имя базы на латинице и без пробелов, то это оно и есть  |
 | {PublicationCatalog} | каталог, в котором будет находиться файл настроек публикации нашей базы. Может быть асболютно любой, часто это apache/htdocs/{PublicationName} |
  | {ConnectionString} | строка соединения с ИБ, которую мы видим в стартере 1С внизу, под списокм баз. Важный момент: кавычки должны быть заменены на &quot;, то есть `File="c:\1c\ib\myib";` -> `File=&quot;c:\1c\ib\myib&quot;;` |  
 
