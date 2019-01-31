@@ -1,7 +1,14 @@
 Apache httpd - веб-сервер, маленький, шустрый, простой и кроссплатформенный. Нафига нам IIS?  
   
 **Внимание!**  
-В коде фрагменты типа "{...}", например "{PublicationName}", необходимо заменить на реальные значения, например "trade".  
+В коде фрагменты типа "{...}" необходимо заменить на реальные значения:
+###### 
+| Параметр | Описание |
+| --- | --- |
+| {PublicationName} | имя корневой ссылки, http://localhost/{PublicationName} |
+| {PublicationCatalog} | каталог, в котором будет находиться файл настроек публикации нашей базы. Может быть асболютно любой, часто это apache/htdocs/{PublicationName} |
+ | {ConnectionString} | строка соединения с ИБ, которую мы видим в стартере 1С внизу, под списокм баз. Важный момент: кавычки должны быть заменены на &quot;, то есть `File="c:\1c\ib\myib";` -> `File=&quot;c:\1c\ib\myib&quot;;` |  
+
 Команды приведены для 64-празрядных версий Apache и 1С, при работе с 32-разрядными версиями заменаяем адреса:  
 `C:\Program Files\` -> `C:\Program Files (x86)\`  
 `/opt/1C/v8.3/x86_64/` -> `/opt/1C/v8.3/i386/`  
@@ -80,7 +87,7 @@ Alias "/{PublicationName}" "{PublicationCatalog}/"
 ######  
 | **debian** | **windows** |
 | --- | --- |
-| `/opt/1C/v8.3/x86_64/webinst -apache24 -wsdir mybase -dir /var/www/mybase -connstr "Srvr=myserver;Ref=mybase;" -confPath /etc/apache2/httpd.conf` | `"C:\Program Files\1cv8\{PlatformVersion}\bin\webinst.exe" -apache24 -wsdir mybase -dir "C:\Program Files\Apache24\htdocs\mybase" -connstr "Srvr=myserver;Ref=mybase;" -confPath "C:\Program Files\Apache24\conf\httpd.conf"` |  
+| `/opt/1C/v8.3/x86_64/webinst -apache24 -wsdir {PublicationName} -dir "{PublicationCatalog}" -connstr "Srvr=myserver;Ref=mybase;" -confPath /etc/apache2/httpd.conf` | `"C:\Program Files\1cv8\{PlatformVersion}\bin\webinst.exe" -apache24 -wsdir {PublicationName} -dir "{PublicationCatalog}" -connstr "Srvr=myserver;Ref=mybase;" -confPath "C:\Program Files\Apache24\conf\httpd.conf"` |  
 
 ### Авторизация средствами ОС
 ...  
