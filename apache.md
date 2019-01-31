@@ -25,9 +25,7 @@ Apache httpd - веб-сервер, маленький, шустрый, прос
 Для http: в C:\Program Files\Apache24\conf\httpd.conf меняем `Listen 80` на `Listen 5080`  
 Для https: в C:\Program Files\Apache24\conf\extra\httpd-ahssl.conf меняем `Listen 443` на `Listen 5443`  
 Либо можно просто отключить ssl, поставив # перед строкой в c:\Program Files\Apache24\httpd.conf:
-```
-LoadModule ssl_module modules/mod_ssl.so
-```
+`LoadModule ssl_module modules/mod_ssl.so` -> `#LoadModule ssl_module modules/mod_ssl.so`
   
 ### Публикация вручную  
 Публикация средствами 1С - для слабаков, публикуем вручную. Открываем конфиг:  
