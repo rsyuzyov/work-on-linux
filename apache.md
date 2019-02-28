@@ -20,7 +20,7 @@ Apache httpd - веб-сервер, маленький, шустрый, прос
 | `sudo apt install apache2` | `choco install apache-httpd --params "/installLocation:'C:\Program Files' /port:80 /serviceName:Apache" -y` |  
 
 ### Ошибки при установке  
-Наиолее частая ошибка: порты 80 или 443 уже кем-то заняты.  
+Наиболее частая ошибка: порты 80 или 443 уже кем-то заняты.  
 Весьма вероятно, что уже установлен IIS ~~и его нужно снести к ежам~~.  
 В этом случае либо освобождаем порты, либо меняем их на нестандартные:  
 Для http: в C:\Program Files\Apache24\conf\httpd.conf меняем `Listen 80` на `Listen 5080`  
