@@ -9,9 +9,9 @@
 ###### 
 | Данные | 9.6 | 10 и выше |
 | --- | --- | --- |
-| Конфиги | /etc/postgresql/9.6/main/  |   |
-| Бинари | ...  | /opt |
-| Базы | /var | /opt |
+| Конфиги | /etc/postgresql/9.6/main/  | /var/lib/pgpro/1c-10/data/ |
+| Бинари | /usr/lib/postgresql/9.6/bin/  | /opt/pgpro/1c-10/bin/ |
+| Базы | /var/ | /var/lib/pgpro/1c-10/data/base/ |
 
 Если ОС без русской локали (например готовые lxc-контейнеры turnkey в proxmox), предварительно нужно ее установить:  
 ```
