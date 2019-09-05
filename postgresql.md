@@ -101,8 +101,8 @@ https://pgtune.leopard.in.ua/
 https://its.1c.ru/db/metod8dev/content/4650/hdoc  
 https://its.1c.ru/db/metod8dev/content/5866/hdoc  
 
-Чек-лист
-'''
+Чек-лист по настройке
+```
 #Параметры, не зависящие от окружения:
 max_connections = 1000
 min_wal_size = 2GB
@@ -142,7 +142,4 @@ max_parallel_workers = 4
 
 #По результатам выполнения pg_test_fsync:
 wal_sync_method = <метод>
-'''
-
-
-
+```
