@@ -101,7 +101,7 @@ https://pgtune.leopard.in.ua/
 https://its.1c.ru/db/metod8dev/content/4650/hdoc  
 https://its.1c.ru/db/metod8dev/content/5866/hdoc  
 
-Чек-лист по настройке
+Чек-лист по параметрам:  
 ```
 #Параметры, не зависящие от окружения:
 max_connections = 1000
