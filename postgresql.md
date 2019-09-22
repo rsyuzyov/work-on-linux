@@ -98,6 +98,7 @@ https://postgrespro.ru/docs/enterprise/9.6/mamonsu
 
 **Настройка**  
 https://pgtune.leopard.in.ua/  
+https://postgrespro.ru/docs/postgrespro/10/config-one-c  
 https://its.1c.ru/db/metod8dev/content/4650/hdoc  
 https://its.1c.ru/db/metod8dev/content/5866/hdoc  
 
