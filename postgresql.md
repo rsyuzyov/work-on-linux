@@ -15,9 +15,10 @@
 
 Если ОС без русской локали (например готовые lxc-контейнеры turnkey в proxmox), предварительно нужно ее установить:  
 ```
-sudo dpkg-reconfigure -plow locales
+sudo dpkg-reconfigure locales
 ```
-Находим в списке локаль ru_RU.UTF-8, помечаем и завершаем настройку.  
+Находим в списке локаль ru_RU.UTF-8, помечаем, затем выбираем в качестве основной и завершаем настройку.  
+  
 Далее при инициализации инстанса необходимо указать encoding и locale, для:
 ```
 /opt/pgpro/1c-10/bin/pg-setup initdb --encoding=UTF8 --locale=ru_RU.UTF-8 --data-checksums
@@ -40,7 +41,8 @@ export PATH="$PATH:/opt/pgpro/1c-10/bin"
 ```
 
 **Настройка**  
-Прежде всего необходимо задать базовые параметры, зависящие от типа дисков, количества памяти и ядер и т.п.  
+Прежде всего открыть доступ снаружи: /var/lib/pgpro/1c-10/data/pg_hba.conf: заменить 127.0.0.1/32 на 0.0.0.0/0  
+Затем необходимо задать базовые параметры, зависящие от типа дисков, количества памяти и ядер и т.п.  
 На сайте https://pgtune.leopard.in.ua/ указываем параметры нашего окружения, нажимаем GENERATE.  
 Результаты вносим в /etc/postgresql/{PG_VER}/main/postgresql.conf.  
 Также выполняем [рекомендации для 1С](https://postgrespro.ru/docs/postgrespro/10/config-one-c)  
@@ -65,9 +67,10 @@ systemctl restart postgrespro-1c-10
 Для windows это обычно open_datasync, для linux - fdsatasync.  
 
 **Заметки**  
-Бинари pg9: /usr/lib/postgresql/9.6/bin
-Бинари pg10: /opt/pgpro/1c-10/bin
-postgresql.conf: `SHOW config_file;`  для pg10 это `/var/lib/pgpro/1c-10/data/postgresql.conf`  
+Бинари pg9: `/usr/lib/postgresql/9.6/bin`  
+Бинари pg10: `/opt/pgpro/1c-10/bin`  
+postgresql.conf: `SHOW config_file;`  
+для pg10 это `/var/lib/pgpro/1c-10/data/postgresql.conf`  
 
 **Бэкапы**  
 https://postgrespro.ru/docs/postgrespro/9.6/continuous-archiving  
