@@ -125,6 +125,7 @@ max_locks_per_transaction = 256
 plantuner.fix_empty_table = 'on'
 online_analyze.table_type = 'temporary'
 online_analyze.verbose = 'off'
+track_activity_query_size = 4096
 
 #Параметры, зависящие от диска - на примере ssd:
 checkpoint_completion_target = 0.9
