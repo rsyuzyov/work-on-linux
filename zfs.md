@@ -52,12 +52,12 @@ TODO: такой замер оказался ни о чем, сделать [о�
 ## Установка и создание пула
 Установка zfs:  
 ```
-sudo apt update
-sudo apt install -y linux-headers-$(uname -r)
-sudo ln -s /bin/rm /usr/bin/rm
-sudo apt install -y zfs-dkms zfsutils-linux
-sudo modprobe zfs
-sudo systemctl start zfs*
+apt update
+apt install -y linux-headers-$(uname -r)
+ln -s /bin/rm /usr/bin/rm
+apt install -y zfs-dkms zfsutils-linux
+modprobe zfs
+systemctl start zfs*
 ```
 
 Создание пула для postgresql:  
@@ -71,12 +71,12 @@ sudo zpool create -o ashift=12 pgdata /dev/{hdd} cache /dev/{ssd} -f
 ```
 Устанавливаем и сразу проверяем параметры:
 ```
-sudo zfs set recordsize=128k pgdata
-sudo zfs set atime=off pgdata
-sudo zfs set compression=lz4 pgdata
-sudo zfs set sync=disabled pgdata
-sudo zfs set primarycache=all pgdata
-sudo zfs get atime,compression,primarycache,recordsize,sync,primarycache pgdata
+zfs set recordsize=128k pgdata
+zfs set atime=off pgdata
+zfs set compression=lz4 pgdata
+zfs set sync=disabled pgdata
+zfs set primarycache=all pgdata
+zfs get atime,compression,primarycache,recordsize,sync,primarycache pgdata
 ```
 
 ## Ограничение потребления памяти
