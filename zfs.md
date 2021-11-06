@@ -101,7 +101,7 @@ cat /sys/module/zfs/parameters/zfs_arc_max
 ```
 
 ## Заметки
-[Параметры](https://github.com/zfsonlinux/zfs/wiki/ZFS-on-Linux-Module-Parameters): `cat /sys/module/zfs/parameters/PARAMETER`  
+[Параметры](https://openzfs.github.io/openzfs-docs/Performance%20and%20Tuning/Module%20Parameters.html): `cat /sys/module/zfs/parameters/PARAMETER`  
 Статистика ARC: `cat /proc/spl/kstat/zfs/arcstats`  
 iostat: `zpool iostat -v`
 
