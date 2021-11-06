@@ -100,14 +100,21 @@ echo 4294967296 > /sys/module/zfs/parameters/zfs_arc_max
 cat /sys/module/zfs/parameters/zfs_arc_max
 ```
 
-## Установка debian на zfs
-https://github.com/zfsonlinux/zfs/wiki/Debian-Stretch-Root-on-ZFS  
-
 ## Заметки
 [Параметры](https://github.com/zfsonlinux/zfs/wiki/ZFS-on-Linux-Module-Parameters): `cat /sys/module/zfs/parameters/PARAMETER`  
 Статистика ARC: `cat /proc/spl/kstat/zfs/arcstats`  
 iostat: `zpool iostat -v`
 
+## Создание тонких копий
+Предположим нужна копия сервера БД для разработчика.
+Создаем новый контейнер с диском минимального размера, затем удаляем диск и вместо него создаем клон с продуктивного сервера БД.
+Чтобы не размещать копии на продуктивном сервере, имеет смысл настроить реплику датасета на сервер разработки и делать клоны с нее.
+Предположим, что продуктивный сервер БД размещен в контейнере (или виртуалке) с id 103, нужно сделать клон в контейнер с id 108:
+```
+zfs destroy zpool1/subvol-108-disk-0 -r
+zfs snapshot zpool1/subvol-103-disk-0@forclone
+zfs clone zpool1/subvol-103-disk-0@forclone zpool1/subvol-108-disk-0
+```
 
 ## Ссылки
 https://github.com/zfsonlinux/zfs/wiki/Debian  
