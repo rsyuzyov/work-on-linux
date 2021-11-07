@@ -6,9 +6,9 @@ alter system set
 alter system set
 	max_wal_size = '4GB';
 alter system set
-	full_page_writes = on;
+	full_page_writes = on; -- на  zfs можно off
 alter system set
-	wal_compression = on;
+	wal_compression = on; -- на  zfs можно off
 alter system set
 	temp_buffers = '256MB';
 alter system set
