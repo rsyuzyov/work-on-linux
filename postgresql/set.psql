@@ -1,0 +1,68 @@
+-- общий лист, в сборке от pgpro большинство параметров настроены при установке
+alter system set
+	max_connections = 1000;
+alter system set
+	min_wal_size = '2GB';
+alter system set
+	max_wal_size = '4GB';
+alter system set
+	full_page_writes = on;
+alter system set
+	wal_compression = on;
+alter system set
+	temp_buffers = '256MB';
+alter system set
+	synchronous_commit = off;
+alter system set
+	commit_delay = 1000;
+alter system set
+	commit_siblings = 5;
+alter system set
+	row_security = off;
+alter system set
+	max_files_per_process = 1000;
+alter system set
+	standard_conforming_strings = off;
+alter system set
+	escape_string_warning = off;
+alter system set
+	max_locks_per_transaction = 256;
+alter system set
+	shared_preload_libraries = 'online_analyze, plantuner';
+alter system set
+	plantuner.fix_empty_table = 'on';
+alter system set
+	online_analyze.table_type = 'temporary';
+--alter system set
+--	online_analyze.verbose = 'off';
+alter system set
+	track_activity_query_size = 4096;
+
+alter system set
+	checkpoint_completion_target = 0.9;
+alter system set
+	effective_io_concurrency = 100;
+alter system set
+	random_page_cost = 1.2;
+
+alter system set
+	shared_buffers = '2GB';
+alter system set
+	effective_cache_size = '6GB';
+alter system set
+	maintenance_work_mem = '256MB';
+alter system set
+	wal_buffers = '16MB';
+alter system set
+	default_statistics_target = 100;
+alter system set
+	work_mem = '256MB';
+
+alter system set
+	max_worker_processes = 4;
+alter system set
+	max_parallel_workers_per_gather = 2;
+alter system set
+	max_parallel_workers = 4;
+alter system set
+	max_parallel_maintenance_workers = 2;

@@ -1,0 +1,36 @@
+-- общий лист, в сборке от pgpro большинство параметров настроены при установке
+show max_connections;
+show min_wal_size;
+show max_wal_size;
+show full_page_writes;
+show wal_compression;
+show temp_buffers;
+show synchronous_commit;
+show commit_delay;
+show commit_siblings;
+show row_security;
+show max_files_per_process;
+show standard_conforming_strings;
+show escape_string_warning = off;
+show max_locks_per_transaction;
+show shared_preload_libraries;
+show plantuner.fix_empty_table;
+show online_analyze.table_type;
+--show online_analyze.verbose;
+show track_activity_query_size;
+
+show checkpoint_completion_target;
+show effective_io_concurrency;
+show random_page_cost;
+
+show shared_buffers;
+show effective_cache_size;
+show maintenance_work_mem;
+show wal_buffers;
+show default_statistics_target;
+show work_mem;
+
+show max_worker_processes;
+show max_parallel_workers_per_gather;
+show max_parallel_workers;
+show max_parallel_maintenance_workers;
