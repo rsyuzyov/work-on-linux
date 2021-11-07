@@ -27,8 +27,8 @@ alter system set
 	escape_string_warning = off;
 alter system set
 	max_locks_per_transaction = 256;
-alter system set
-	shared_preload_libraries = 'online_analyze, plantuner';
+--alter system set
+--	shared_preload_libraries = 'online_analyze, plantuner';
 alter system set
 	plantuner.fix_empty_table = 'on';
 alter system set
