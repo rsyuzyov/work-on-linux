@@ -2,7 +2,7 @@
 
 Практически все возможные способы кратко, но емко описаны [здесь](https://rhelblog.redhat.com/2015/02/04/overview-of-direct-integration-options/).  
 По большому счету есть 2 способа: через samba и через sssd (realm).  
-Samba - проект с долгой историей и кучей возможностей, но он достаточно тяжел, не совсем тривиален в настройке и менее богат возможностями, чем realm.  
+Samba - проект с долгой историей и кучей возможностей, но он достаточно тяжел, не совсем тривиален в настройке и менее богат возможностями, чем sssd.  
 Sssd - проект от RedHat, более свежий и простой.  
 Сравнение samba и sssd [здесь](https://rhelblog.redhat.com/2015/04/02/sssd-vs-winbind/).  
 Второй способ приведен в [официальной инструкции microsoft](https://docs.microsoft.com/ru-ru/sql/linux/sql-server-linux-active-directory-authentication?view=sql-server-linux-2017#join).

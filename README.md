@@ -12,22 +12,22 @@
 Двигаемся малыми шагами, интегрируясь в существующую инфраструктуру (построенную, очевидно, преимущественно на ПО Microsoft). Начинаем с себя - [переходим на linux mint](move-yourself.md). Затем последовательно заменям сервисы.
 
 **То, что незаметно для пользователей, достаточно беспроблемно:**
-- [IIS -> Apache httpd](apache.md)  
-- [MSSQL -> postgresql](postgresql.md)  
-- [Сервер 1С: переводим на linux](1c-on-linux.md)  
-- [Контроллер домена: переводим на samba | freeipa](freeipa.md)  
-- [Файловое хранилище: переводим на samba](samba.md)
-- [Организация мониторинга](monitoring.md)  
-- [Организация резервного копирования](backups.md)  
-- [Hyper-V -> Proxmox](proxmox.md)  
+- [IIS -> Apache httpd](apache/apache.md)  
+- [MSSQL -> postgresql](postgresql/postgresql.md)  
+- [Сервер 1С: переводим на linux](1c/1c-on-linux.md)  
+- Контроллер домена: переводим на [samba](active-directory/samba-ad-dc.md) | [freeipa](active-directory/freeipa.md)  
+- [Файловое хранилище: переводим на samba](storage/samba.md)
+- [Организация мониторинга](monitoring/monitoring.md)  
+- [Организация резервного копирования](storage/backups.md)  
+- [Hyper-V -> Proxmox](proxmox/proxmox.md)  
 
 
 **Самое опасное - касается UX, требуется тщательная подготовка:**
-- [Сервер терминалов](rdp-server.md)
-- [Офисный пакет: переходим на libreoffice](office.md)
-- [Рабочие места пользователей: переходим на linux mint](workstations.md)
+- [Сервер терминалов](remote-desktop/rdp-server.md)
+- [Офисный пакет: переходим на libreoffice](office/office.md)
+- Рабочие места пользователей: переходим на [debian](linux/debian-workstation.md)
 
-Все заменяемые сервисы [включаем в AD](join-to-domain.md) для централизованного управления.
+Все заменяемые сервисы [включаем в AD](active-directory/join-to-domain.md) для централизованного управления.
 
 Если есть ссылки на статьи и другие ресурсы, которые кажутся полезным в рамках данной темы, буду очень признателен за пополнение [bibliography.md](bibliography.md). Ну или можно просто написать в вопросы (issues).  
 Дополнения, исправления и вопросы, возникшие при чтении/применении, а также любая другая помощь приветствуется!
