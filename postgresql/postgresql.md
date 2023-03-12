@@ -1,50 +1,72 @@
-Подготовка в случае linux: используем [ранее подготовленный образ](install-debian.md), добавляем диск; после установки переносим main. Либо, если у нас уже используется чудесный proxmox - просто поднимаем контейнер debian последней версии из репозиторя шаблонов turnkey (кнопка templates в хранилищах).  
-В случае windows просто рядом ставим на систему с ms sql, выделив память и проц, либо готовим ВМ, как для ms sql.  
-
-**Установка**  
-Ставим [отсюда (1С)](https://releases.1c.ru/project/AddCompPostgre), а лучше [отсюда (pgpro)](http://1c.postgres.ru/). 
-Я предпочитаю бесплатные сборки для 1C от невероятно крутых ребят из Postgres Professional, поэтому в тексте некоторые несущественные нюансы будут свойственны именно этим сборкам.  
-
-ВНИМАНИЕ! Каталоги исполняемых и конфигурационных файлов по-умолчанию для PG9 и PG10 отличаются:  
-###### 
-| Данные | 9.6 | 10 и выше |
-| --- | --- | --- |
-| Конфиги | /etc/postgresql/9.6/main/  | /var/lib/pgpro/1c-10/data/ |
-| Бинари | /usr/lib/postgresql/9.6/bin/  | /opt/pgpro/1c-10/bin/ |
-| Базы | /var/ | /var/lib/pgpro/1c-10/data/base/ |
-
-Если ОС без русской локали (например готовые lxc-контейнеры turnkey в proxmox), предварительно нужно ее установить:  
+**Подотовка**
+Развернуть контейнер с debian  
+Установить русскую локаль:  
 ```
 sudo dpkg-reconfigure locales
 ```
 Находим в списке локаль ru_RU.UTF-8, помечаем, затем выбираем в качестве основной и завершаем настройку.  
-  
-Далее при инициализации инстанса необходимо указать encoding и locale, для:
+
+
+**Установка**  
+Есть [вариант дистрибутива от 1С](https://releases.1c.ru/project/AddCompPostgre), но я им не пользуюсь.  
+Берем отсюда [отсюда (pgpro)](http://1c.postgres.ru/): заполняем почту и получаем на почту инструкцию.  
+Пример ддля 15 версии:
 ```
-/opt/pgpro/1c-10/bin/pg-setup initdb --encoding=UTF8 --locale=ru_RU.UTF-8 --data-checksums
+Вы получили это письмо, поскольку запрашивали инструкции по установке postgreSQL для 1с на сайте 1c.postgres.ru/.
+
+Используйте инструкции для установки postgreSQL для 1с. Обратите внимание, что команды должны выполняться от пользователя с правами суперпользователя.
+
+wget https://repo.postgrespro.ru/1c-15/keys/pgpro-repo-add.sh
+sh pgpro-repo-add.sh
+Если наш продукт единственный Postgres на вашей машине и вы хотите
+сразу получить готовую к употреблению базу:
+
+
+// Этот вариант нам не подходит, так как непоянтно, какие параметры при создании кластера будут установлены, а нам нужны правильные locale и encodind, да и checksums включить полезно
+apt-get install postgrespro-1c-15 
+
+Если у вас уже установлен другой Postgres и вы хотите чтобы он
+продолжал работать параллельно (в том числе и для апгрейда с более
+старой major-версии):
+
+
+apt-get install postgrespro-1c-15-contrib
+// Эту команду мы дополним нужными параметрами
+/opt/pgpro/1c-15/bin/pg-setup initdb
+/opt/pgpro/1c-15/bin/pg-setup service enable
+/opt/pgpro/1c-15/bin/pg-setup service start
 ```
 
-После установки:  
+Итоговый вариант:  
 ```
-sudo -u postgres psql
-\password
-\q
-```
-
-в ~/.bashrc добавить:
-```
-export PATH="$PATH:/usr/lib/postgresql/9.6/bin"
-```
-либо
-```
-export PATH="$PATH:/opt/pgpro/1c-10/bin"
+wget https://repo.postgrespro.ru/1c-15/keys/pgpro-repo-add.sh
+sh pgpro-repo-add.sh
+apt-get install postgrespro-1c-15-contrib
+/opt/pgpro/1c-15/bin/pg-setup initdb --encoding=UTF8 --locale=ru_RU.UTF-8 --data-checksums
+/opt/pgpro/1c-15/bin/pg-setup service enable
+/opt/pgpro/1c-15/bin/pg-setup service start
 ```
 
 **Настройка**  
 Прежде всего открыть доступ снаружи: /var/lib/pgpro/1c-10/data/pg_hba.conf: заменить 127.0.0.1/32 на 0.0.0.0/0  
+
+Далее меняем пароль для пользователя postgres:  
+```
+su postgres
+/opt/pgpro/1c-15/bin/psql
+\password
+\q
+exit
+```
+
+Для удобства обращения к утилитам можно прописать каталог в PATH:
+В ~/.bashrc добавить:
+```
+export PATH="$PATH:/opt/pgpro/1c-15/bin"
+```
+
 Затем необходимо задать базовые параметры, зависящие от типа дисков, количества памяти и ядер и т.п.  
 На сайте https://pgtune.leopard.in.ua/ указываем параметры нашего окружения, нажимаем GENERATE.  
-Результаты вносим в /etc/postgresql/{PG_VER}/main/postgresql.conf.  
 Также выполняем [рекомендации для 1С](https://postgrespro.ru/docs/postgrespro/10/config-one-c)  
 Дополнительно находим и изменяем параметры:  
 ```
@@ -59,18 +81,18 @@ select pg_reload_conf();
 ```
 либо перезапускаем службу:  
 ```
-systemctl restart postgrespro-1c-10
+systemctl restart postgrespro-1c-15
 ```
 
 По параметру "wal_sync_method":  
 Запускаем /usr/lib/postgresql/{PG_VER}/bin/pg_test_fsync и смотрим на результаты: метод с наибольшими ops/sec будет оптимальным.
 Для windows это обычно open_datasync, для linux - fdsatasync.  
 
-**Заметки**  
+**Где бинари и конфиги**  
 Бинари pg9: `/usr/lib/postgresql/9.6/bin`  
-Бинари pg10: `/opt/pgpro/1c-10/bin`  
+Бинари pg15: `/opt/pgpro/1c-15/bin`  
 postgresql.conf: `SHOW config_file;`  
-для pg10 это `/var/lib/pgpro/1c-10/data/postgresql.conf`  
+для pg15 это `/var/lib/pgpro/1c-15/data/postgresql.conf`  
 
 **Бэкапы**  
 https://postgrespro.ru/docs/postgrespro/9.6/continuous-archiving  
