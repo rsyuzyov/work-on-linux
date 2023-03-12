@@ -9,7 +9,7 @@ sudo dpkg-reconfigure locales
 
 **Установка**  
 Есть [вариант дистрибутива от 1С](https://releases.1c.ru/project/AddCompPostgre), но я им не пользуюсь.  
-Идем за дистрибутивом от Postgres Professional [сюда](http://1c.postgres.ru/), заполняем почту и получаем на почту инструкцию.  
+Идем за дистрибутивом от Postgres Professional [сюда](http://1c.postgres.ru/), заполняем форму и получаем на почту инструкцию.  
 Пример для 15 версии:  
 ```
 Вы получили это письмо, поскольку запрашивали инструкции по установке postgreSQL для 1с на сайте 1c.postgres.ru/.
