@@ -10,6 +10,7 @@
 ...
 
 ## Ставим драйверы
+Вообще обычно никакие драйверы ставить не надо, так как в ядре они есть ппочти для всего, но иногда все-таки приходится.
 Драйверы обычно можно найти на гитхабе по названию модели.  
 Инструкцию по установке читаем в README.md, чащего всего она примерно такая:
  ```
@@ -22,8 +23,6 @@
  sudo checkinstall
  ```
  
- 
-
 На примере usb wifi-AC модуля D-Link DWA-171:  
 Читаем README.md:  
 ```
@@ -33,10 +32,10 @@ git clone https://github.com/gnab/rtl8812au.git .
 make
 sudo insmod 8812au.ko
 ```
-Драйверы всегда собираются под конкретное ядро. Это означает, что при обновлении ядра необходимо пересобирать драйвер.  
-Для авотматизации процесса существует технология [DKMS](https://wiki.archlinux.org/index.php/Dynamic_Kernel_Module_Support_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)):  
+Драйверы всегда собираются под конкретное ядро. Это означает, что при обновлении ядра необходимо пересобрать драйвер.  
+Для автоматизации процесса есть технология [DKMS](https://wiki.archlinux.org/index.php/Dynamic_Kernel_Module_Support_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9)):  
 ```
-sudo apt-get install build-essential dkms 
+sudo apt install build-essential dkms 
 sudo dkms add -m 8812au -v 4.2.2
 sudo dkms build -m 8812au -v 4.2.2
 sudo dkms install -m 8812au -v 4.2.2
