@@ -40,7 +40,7 @@ apt-get install postgrespro-1c-15-contrib
 ```
 wget https://repo.postgrespro.ru/1c-15/keys/pgpro-repo-add.sh
 sh pgpro-repo-add.sh
-apt-get install postgrespro-1c-15-contrib
+apt-get install postgrespro-1c-15-contrib -y
 /opt/pgpro/1c-15/bin/pg-setup initdb --encoding=UTF8 --locale=ru_RU.UTF-8 --data-checksums
 /opt/pgpro/1c-15/bin/pg-setup service enable
 /opt/pgpro/1c-15/bin/pg-setup service start
