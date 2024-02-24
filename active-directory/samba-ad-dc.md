@@ -51,7 +51,7 @@ systemctl enable samba-ad-dc
 Program/script:               C:\Windows\System32\Robocopy.exe
 Add arguments (optional):     \\DC1\SYSVOL\samdom.example.com\ C:\Windows\SYSVOL\domain\ /mir /sec
 ```
-Настройка обновления записей в DNS через DHCP:
+Настройка обновления записей в DNS через DHCP:  
 https://wiki.samba.org/index.php/Configure_DHCP_to_update_DNS_records
 
 ** Ссылки:
