@@ -15,9 +15,9 @@ Get-ADForest
 Set-ADDomainMode -Identity domain.local -DomainMode Windows2008Domain
 Get-ADDomain
 ```
-Установка samba
+Установка samba, ntp-сервера:  
 ```
-apt install acl attr samba winbind libpam-winbind libnss-winbind krb5-config krb5-user dnsutils python3-setproctitle -y
+apt install acl attr samba winbind libpam-winbind libnss-winbind krb5-config krb5-user dnsutils python3-setproctitle chrony -y
 ```
 Удаление конфигурации:  
 ```
