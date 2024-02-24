@@ -6,7 +6,7 @@ https://wiki.samba.org/index.php/Setting_up_Samba_as_an_Active_Directory_Domain_
 Если же необходимо поднять дополнительный контроллер в существем лесу, то... тоже делаем по официальной инструкции:
 https://wiki.samba.org/index.php/Joining_a_Samba_DC_to_an_Existing_Active_Directory
 
-Поскольку второй вариант более часто востребован, ниже приведена выжимка:
+Поскольку второй вариант более часто востребован, ниже приведена выжимка:  
 Если samba будет версии ниже 4.11, то нужно понизить версию схемы с 69 (2012R2) до 47 (2008R2):
 ```
 Import-Module ActiveDirectory
@@ -17,19 +17,20 @@ Get-ADDomain
 ```
 Установка samba
 ```
-apt-get install acl attr samba samba-dsdb-modules samba-vfs-modules winbind libpam-winbind libnss-winbind krb5-config krb5-user dnsutils
-cp /var/lib/samba/private/krb5.conf /etc/krb5.conf
+apt install acl attr samba winbind libpam-winbind libnss-winbind krb5-config krb5-user dnsutils python3-setproctitle -y
 ```
-TODO: проверить, надо ли:
+Удаление конфигурации:  
 ```
-?libpam-krb5
-?rm /etc/samba/smb.conf
+rm /etc/samba/smb.conf
 ```
-Ввод в домен как DC:
+Ввод в домен как DC:  
 ```
 kinit username
-samba-tool domain join domain.local DC -k yes
-rm /etc/systemd/system/samba-ad-dc.service && systemctl daemon-reload
+samba-tool domain join domain.local DC
+```
+Включение службы:  
+```
+#rm /etc/systemd/system/samba-ad-dc.service && systemctl daemon-reload
 systemctl enable samba-ad-dc
 reboot
 ```
