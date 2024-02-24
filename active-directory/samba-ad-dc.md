@@ -35,7 +35,7 @@ samba-tool domain join domain.local DC
         netbios name = DCNAME
         realm = DOMAIN.LOCAL
         server role = active directory domain controller
-        workgroup = AG
+        workgroup = DOMAIN
         dns forwarder = 8.8.8.8
 
 [sysvol]
