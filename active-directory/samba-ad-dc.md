@@ -15,16 +15,10 @@ Get-ADForest
 Set-ADDomainMode -Identity domain.local -DomainMode Windows2008Domain
 Get-ADDomain
 ```
-Установка samba:  
+Установка samba, удаление конфигурации, ввод в домен в роли DC:  
 ```
 apt install acl attr samba winbind libpam-winbind libnss-winbind krb5-config krb5-user dnsutils python3-setproctitle -y
-```
-Удаление конфигурации:  
-```
 rm /etc/samba/smb.conf
-```
-Ввод в домен как DC:  
-```
 kinit username
 samba-tool domain join domain.local DC
 ```
