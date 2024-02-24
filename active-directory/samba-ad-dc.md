@@ -28,14 +28,31 @@ rm /etc/samba/smb.conf
 kinit username
 samba-tool domain join domain.local DC
 ```
+Настройка переадресации dns-запросов вне длокального домена: в /etc/samba/smb.conf добавить строку "dns forwarder":  
+```
+# Global parameters
+[global]
+        netbios name = DCNAME
+        realm = DOMAIN.LOCAL
+        server role = active directory domain controller
+        workgroup = AG
+        dns forwarder = 8.8.8.8
+
+[sysvol]
+        path = /var/lib/samba/sysvol
+        read only = No
+
+[netlogon]
+        path = /var/lib/samba/sysvol/domain.local/scripts
+        read only = No
+```
 Включение службы:  
 ```
 #rm /etc/systemd/system/samba-ad-dc.service && systemctl daemon-reload
 systemctl enable samba-ad-dc
-reboot
 ```
-Настройка репликации SYSVOL через robocopy: 
-На виндовом контроллере создаем задание в планировщике:
+Настройка репликации SYSVOL через robocopy:  
+На виндовом контроллере создаем задание в планировщике:  
 ```
 Program/script:               C:\Windows\System32\Robocopy.exe
 Add arguments (optional):     \\DC1\SYSVOL\samdom.example.com\ C:\Windows\SYSVOL\domain\ /mir /sec
