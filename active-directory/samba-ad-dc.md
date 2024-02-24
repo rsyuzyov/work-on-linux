@@ -54,7 +54,7 @@ Add arguments (optional):     \\DC1\SYSVOL\samdom.example.com\ C:\Windows\SYSVOL
 Настройка обновления записей в DNS через DHCP:  
 https://wiki.samba.org/index.php/Configure_DHCP_to_update_DNS_records
 
-** Ссылки:
+** Ссылки:  
 https://wiki.samba.org/index.php/Setting_up_Samba_as_an_Active_Directory_Domain_Controller  
 https://wiki.samba.org/index.php/Joining_a_Samba_DC_to_an_Existing_Active_Directory  
 https://it-lux.ru/debian-10-ustanovka-samba-ad/  
