@@ -19,7 +19,7 @@ synchronous_commit = off
 # память >>
 shared_buffers = 4GB
 effective_cache_size = 12GB
-maintenance_work_mem = 1G
+maintenance_work_mem = 1GB
 work_mem = 512MB
 temp_buffers = 512MB
 # << память
