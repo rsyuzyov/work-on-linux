@@ -84,7 +84,9 @@ systemctl restart postgrespro-1c-17
 ```
 
 Можно немного схитрить и подложить готовый файл postgresql.auto.conf со всеми нужными настройками.
-Готоввые конфиги: [4 ядра, 8 Гигабайт, ssd, zfs](postgresql.auto.conf_4_8_ssd_zfs), [8 ядер, 16 Гигабайт, ssd, zfs](postgresql.auto.conf_8_16_ssd_zfs)
+Готовые конфиги:  
+[4 ядра, 8 Гигабайт, ssd, zfs](postgresql.auto.conf_4_8_ssd_zfs)  
+[8 ядер, 16 Гигабайт, ssd, zfs](postgresql.auto.conf_8_16_ssd_zfs)
 Перед подкладыванием нужно обязательно остановить pg и потом запустить.
 
 
