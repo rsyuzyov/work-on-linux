@@ -67,7 +67,10 @@ sudo zpool create -o ashift=12 pgdata /dev/{sdx} -f
 "/dev/{sdx}" - здесь может быть диск или раздел диска (посмотреть, что есть: ls /dev/sd*), или просто каталог в случае тестов, например ~/zfstst.  
 Если пул создется на hdd, и есть немного места на ssd, можно на ssd создать раздел и включить его в пул в качестве кэша:
 ```
-zpool create -o ashift=12 pgdata /dev/{hdd} cache /dev/{ssd} -f
+смотрим id нужных дисков:
+ls -k /dev/disk/dy-id/ | grep sda2
+ls -k /dev/disk/dy-id/ | grep sdb2
+zpool create -o ashift=12 pgdata mirror idsda idsdb
 ```
 Устанавливаем и сразу проверяем параметры:
 ```
