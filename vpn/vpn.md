@@ -54,6 +54,6 @@ https://habr.com/ru/articles/568450/
 Установить https://www.wiresock.net/sdc_download/921/?key=bekfpuvidq5x8ofg2u74j2lqk8zy9y  
 Далее wg-quick-config -add -start
 
-**Полезные ссылки:  
+** Полезные ссылки:  **
 https://habr.com/ru/articles/527404/
 https://habr.com/ru/articles/738890/  
