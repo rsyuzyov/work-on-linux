@@ -68,7 +68,7 @@ zfs set recordsize=128k $poolname
 zfs set atime=off $poolname
 zfs set compression=lz4 $poolname
 zfs set sync=disabled $poolname
-zfs set primarycache=all $poolname
+zfs set primarycache=metadata $poolname
 zfs get atime,compression,primarycache,recordsize,sync,primarycache $poolname
 ```
 
