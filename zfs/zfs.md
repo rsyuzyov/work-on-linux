@@ -55,20 +55,21 @@ systemctl start zfs*
 
 Можно создать zfs-пул на целом диске, на разделе или в файле. Про файлы опустим.  
 Лучше создавать разел, оставляя немного свободного места, и отдавать уже его - так и размеры для зеркала выровнять можно, и остается запас свободных ячеек на экстренный случай.
+Пример создания зеркального пула pool1 на разеделах sda4 и sdb4: смотрим id нужных разделов, создаем пул, устанавливаем и сразу проверяем параметры:
 ```
-смотрим id нужных разделов:
-ls -l /dev/disk/by-id/ | grep sda2
-ls -l /dev/disk/by-id/ | grep sdb2
-```
-Устанавливаем и сразу проверяем параметры:
-```
-poolname=pgdata
-zpool create -o ashift=12 $poolname mirror idsda idsdb
-zfs set recordsize=128k $poolname
-zfs set atime=off $poolname
-zfs set compression=lz4 $poolname
-zfs set sync=disabled $poolname
-zfs set primarycache=metadata $poolname
+partname1=sda4
+partname2=sdb4
+poolname=pool1
+
+partid=$(ls -l /dev/disk/by-id/ | grep $partname1 | grep part | grep -v wwn | awk '{print $9}')
+partid2=$(ls -l /dev/disk/by-id/ | grep $partname2 | grep part | grep -v wwn | awk '{print $9}')
+
+echo 'find id:' $partname1 ' -> ' $partid1
+echo 'find id:' $partname2 ' -> ' $partid2
+echo command: zpool create -o ashift=12 $poolname mirror $partid1 $partid2
+
+zpool create -o ashift=12 $poolname mirror $partid1 $partid2
+zfs set recordsize=128k atime=off compression=lz4 sync=disabled primarycache=metadata $poolname
 zfs get atime,compression,primarycache,recordsize,sync,primarycache $poolname
 ```
 
