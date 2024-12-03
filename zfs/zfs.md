@@ -61,7 +61,7 @@ partname1=sda4
 partname2=sdb4
 poolname=pool1
 
-partid=$(ls -l /dev/disk/by-id/ | grep $partname1 | grep part | grep -v wwn | awk '{print $9}')
+partid1=$(ls -l /dev/disk/by-id/ | grep $partname1 | grep part | grep -v wwn | awk '{print $9}')
 partid2=$(ls -l /dev/disk/by-id/ | grep $partname2 | grep part | grep -v wwn | awk '{print $9}')
 
 echo 'find id:' $partname1 ' -> ' $partid1
