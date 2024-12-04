@@ -70,7 +70,7 @@ echo command: zpool create -o ashift=12 $poolname mirror $partid1 $partid2
 
 zpool create -o ashift=12 $poolname mirror $partid1 $partid2
 zfs set recordsize=128k atime=off compression=lz4 sync=disabled primarycache=metadata $poolname
-zfs get atime,compression,primarycache,recordsize,sync,primarycache $poolname
+zfs get recordsize,atime,compression,sync,primarycache $poolname
 ```
 
 ## Ограничение потребления памяти
