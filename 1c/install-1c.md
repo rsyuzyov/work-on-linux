@@ -25,6 +25,15 @@ sudo systemctl start srv1cv83
 sudo systemctl start haspd
 ```
 
+Проброс usb-ключа в контейнер:  
+На хосте:  
+```
+ln -s /dev/bus/usb/005/002 /dev/aks/hasp/5-1
+```
+Далее в ресурсах контейнера: Add -> Device Passthrough -> Device path: /dev/aks/hasp/5-1, либо в конфиг добавить после ядер:  
+```
+dev0: /dev/aks/hasp/5-1
+```
 
 **Мониторинг и анализ**  
 https://github.com/bessonovevgen/srv-1c-zabbix-template  

@@ -55,4 +55,5 @@ https://habr.com/ru/articles/568450/
 Далее wg-quick-config -add -start
 
 Полезные ссылки:  
-https://habr.com/ru/articles/527404/
+https://habr.com/ru/articles/527404/  
+https://habr.com/ru/articles/738890/  
