@@ -39,14 +39,14 @@ ls -l /dev/aks/hasp/
 
 ## Создание ссылки
 
-Ссылку можно сделать руками: смотрим номер шины/устройства:
+Ссылку можно сделать руками:
 
 ```
 lsusb
 > Bus 006 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
 > Bus 005 Device 002: ID 0529:0001 Aladdin Knowledge Systems HASP copy protection dongle
 > Bus 005 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
-mkdir /dev/aks /dev/aks/hasp
+mkdir -p /dev/aks/hasp
 ln -s /dev/bus/usb/005/002 /dev/aks/hasp/99-1
 ```
 
@@ -59,7 +59,7 @@ ln -s /dev/bus/usb/005/002 /dev/aks/hasp/99-1
 
 ```
 wget https://raw.githubusercontent.com/rsyuzyov/work-on-linux/refs/heads/master/1c/scripts/link-aladdin -P /usr/local/bin
-chmod + x /usr/local/bin/link-aladdin
+chmod +x /usr/local/bin/link-aladdin
 wget https://raw.githubusercontent.com/rsyuzyov/work-on-linux/refs/heads/master/1c/scripts/99-aladdin.rules -P /etc/udev/rules.d/
 udevadm control --reload-rules
 udevadm trigger
