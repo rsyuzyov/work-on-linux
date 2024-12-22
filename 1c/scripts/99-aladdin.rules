@@ -1,0 +1,1 @@
+SUBSYSTEM=="usb", ATTR{idVendor}=="0529", ATTR{idProduct}=="0001", RUN+="/usr/local/bin/link-aladdin"

@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Создаем директорию /dev/aks/hasp, если её ещё нет
+mkdir -p /dev/aks/hasp
+
+# Инициализация порядкового номера
+counter=1
+
+# Обрабатываем вывод команды lsusb
+lsusb | while read -r line; do
+    # Проверяем, содержит ли строка подстроку "Aladdin"
+    if [[ "$line" == *"Aladdin"* ]]; then
+        # Извлекаем номер шины и устройства
+        bus=$(echo "$line" | awk '{print $2}')
+        device=$(echo "$line" | awk '{print $4}' | sed 's/://')
+
+        # Проверяем, существует ли уже ссылка на указанное устройство
+        if ! find /dev/aks/hasp -lname "/dev/bus/usb/$bus/$device" | grep -q .; then
+            # Проверяем, существует ли ссылка с текущим порядковым номером, и увеличиваем номер, если нужно
+            while [[ -e /dev/aks/hasp/99-$counter ]]; do
+                ((counter++))
+            done
+
+            # Создаем символическую ссылку
+            ln -s /dev/bus/usb/$bus/$device /dev/aks/hasp/99-$counter
+
+            # Увеличиваем порядковый номер
+            ((counter++))
+        fi
+    fi
+done
