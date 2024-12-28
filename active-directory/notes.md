@@ -55,8 +55,8 @@ chmod 400 /etc/dhcpduser.keytab
 
 #### Примеры команд
 ```
-samba-tool dns add srv-dc1 ag.local rsyuzyov A 192.168.88.192 -U syuzyov%pass  
-samba-tool dns query srv-dc1 ag.local @ A -U syuzyov%pass  
+samba-tool dns add srv-dc1 domain.local uesr A 192.168.0.1 -U user%pass  
+samba-tool dns query srv-dc1 domain.local @ A -U user%pass  
 wbinfo -u все пользователи  
 tdbdump - утилита для дампа tdbф-файлов  
 ```
