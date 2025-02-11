@@ -67,7 +67,7 @@ echo 'find id:' $partname2 ' -> ' $partid2
 echo command: zpool create -o ashift=12 $poolname mirror $partid1 $partid2
 
 zpool create -o ashift=12 $poolname mirror $partid1 $partid2
-zfs set recordsize=128k atime=off compression=lz4 sync=disabled primarycache=metadata $poolname
+zfs set recordsize=128k atime=off compression=zstd sync=disabled primarycache=metadata $poolname
 zfs get recordsize,atime,compression,sync,primarycache $poolname
 ```
 
