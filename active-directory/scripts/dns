@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Чтение конфигурации
+source ./.dns
+
+usage() {
+  echo "Использование:"
+  echo "$0 add|change|delete|show <ИмяХоста> [IP-адрес]"
+  echo "  add <ИмяХоста> <IP-адрес>    - добавить A-запись"
+  echo "  change <ИмяХоста> <IP-адрес> - изменить A-запись (запросит старый IP)"
+  echo "  delete <ИмяХоста> <IP-адрес> - удалить A-запись"
+  echo "  show <ИмяХоста>              - показать IP для хоста"
+  exit 1
+}
+
+if [[ $# -lt 2 ]]; then
+  usage
+fi
+
+ACTION=$1
+NAME=$2
+IP=$3
+
+add_record() {
+  samba-tool dns add "$SERVER" "$ZONE" "$NAME" A "$IP" -U "$LOGIN%$PASSWORD"
+}
+
+delete_record() {
+  samba-tool dns delete "$SERVER" "$ZONE" "$NAME" A "$IP" -U "$LOGIN%$PASSWORD"
+}
+
+change_record() {
+  read -p "Введите старый IP для изменения: " OLD_IP
+  samba-tool dns update "$SERVER" "$ZONE" "$NAME" A "$OLD_IP" "$IP" -U "$LOGIN%$PASSWORD"
+}
+
+show_record() {
+  samba-tool dns query "$SERVER" "$ZONE" "$NAME" A -U "$LOGIN%$PASSWORD"
+}
+
+case "$ACTION" in
+  add)
+    [[ -z "$IP" ]] && usage
+    add_record
+    ;;
+  delete)
+    [[ -z "$IP" ]] && usage
+    delete_record
+    ;;
+  change)
+    [[ -z "$IP" ]] && usage
+    change_record
+    ;;
+  show)
+    show_record
+    ;;
+  *)
+    echo "Неверное действие: $ACTION"
+    usage
+    ;;
+esac
