@@ -1,19 +1,41 @@
 #!/bin/bash
 
-# Чтение конфигурации
-source ./.dns
+DNS_CONFIG="./.dns"
+
+create_dns_file() {
+  echo "Файл конфигурации $DNS_CONFIG не найден."
+  read -p "Введите SERVER (DNS сервер): " SERVER
+  read -p "Введите ZONE (DNS зона, например example.com): " ZONE
+  read -p "Введите LOGIN (пользователь): " LOGIN
+  read -s -p "Введите PASSWORD: " PASSWORD
+  echo
+  cat > "$DNS_CONFIG" <<EOF
+SERVER=$SERVER
+ZONE=$ZONE
+LOGIN=$LOGIN
+PASSWORD=$PASSWORD
+EOF
+  echo "Файл конфигурации создан: $DNS_CONFIG"
+}
+
+if [[ ! -f "$DNS_CONFIG" ]]; then
+  create_dns_file
+fi
+
+source "$DNS_CONFIG"
 
 usage() {
   echo "Использование:"
-  echo "$0 add|change|delete|show <ИмяХоста> [IP-адрес]"
+  echo "$0 add|change|delete|show|clear <ИмяХоста> [IP-адрес]"
   echo "  add <ИмяХоста> <IP-адрес>    - добавить A-запись"
   echo "  change <ИмяХоста> <IP-адрес> - изменить A-запись (запросит старый IP)"
   echo "  delete <ИмяХоста> <IP-адрес> - удалить A-запись"
   echo "  show <ИмяХоста>              - показать IP для хоста"
+  echo "  clear                        - удалить файл конфигурации .dns"
   exit 1
 }
 
-if [[ $# -lt 2 ]]; then
+if [[ $# -lt 1 ]]; then
   usage
 fi
 
@@ -38,21 +60,34 @@ show_record() {
   samba-tool dns query "$SERVER" "$ZONE" "$NAME" A -U "$LOGIN%$PASSWORD"
 }
 
+clear_config() {
+  if [[ -f "$DNS_CONFIG" ]]; then
+    rm -f "$DNS_CONFIG"
+    echo "Файл конфигурации $DNS_CONFIG удалён."
+  else
+    echo "Файл конфигурации не найден."
+  fi
+}
+
 case "$ACTION" in
   add)
-    [[ -z "$IP" ]] && usage
+    [[ -z "$NAME" || -z "$IP" ]] && usage
     add_record
     ;;
   delete)
-    [[ -z "$IP" ]] && usage
+    [[ -z "$NAME" || -z "$IP" ]] && usage
     delete_record
     ;;
   change)
-    [[ -z "$IP" ]] && usage
+    [[ -z "$NAME" || -z "$IP" ]] && usage
     change_record
     ;;
   show)
+    [[ -z "$NAME" ]] && usage
     show_record
+    ;;
+  clear)
+    clear_config
     ;;
   *)
     echo "Неверное действие: $ACTION"
